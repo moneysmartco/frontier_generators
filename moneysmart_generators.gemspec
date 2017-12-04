@@ -2,15 +2,16 @@
 $:.push File.expand_path("../lib", __FILE__)
 
 Gem::Specification.new do |s|
-  s.name        = "frontier_generators"
+  s.name        = "moneysmart_generators"
   s.version     = "0.24.2"
-  s.authors     = ["Jordan Maguire"]
-  s.email       = ["jordan@thefrontiergroup.com.au"]
-  s.homepage    = "https://github.com/thefrontiergroup/frontier_generators"
+  s.authors     = ["Benjamin Robinson"]
+  s.email       = ["ben.robinson@moneysmart.co"]
+  s.homepage    = "https://github.com/moneysmartco/moneysmart_generators"
   s.summary     = "Comprehensive generators for CRUD"
   s.description = <<-EOF
-    Use in conjunction with the Rails Template (https://github.com/thefrontiergroup/rails-template)
-    to quickly scaffold usable admin interfaces for models.
+    Use in conjunction with the app builder (https://github.com/moneysmartco/ms_app_cutter)
+    Along with the engine builder (https://github.com/moneysmartco/ms-engine-cutter)
+    to quickly scaffold usable engines with an admin interface for models.
   EOF
 
   s.files         = Dir['README.md', 'lib/**/{*,.[a-z]*}']

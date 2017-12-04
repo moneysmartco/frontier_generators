@@ -1,12 +1,12 @@
-# Frontier Generators
+# MoneySmart Generators
 
-Use the Frontier Generators on the [Frontier Template](https://github.com/thefrontiergroup/rails-template) to quickly spin up CRUD interfaces.
+Use the MoneySmart Generators on the [Moneysmart App Builder](https://github.com/moneysmartco/ms_app_cutter) and [Engine builder](https://github.com/moneysmartco/ms-engine-cutter) to quickly spin up CRUD interfaces.
 
 By default, you get:
 - Models with validations
 - Factories for models using [FFaker](https://github.com/ffaker/ffaker). Factoried attributes take validations into account.
 - Index, new, edit, destroy actions
-- Authorization via [CanCanCan](https://github.com/CanCanCommunity/cancancan) abilities or [Pundit](https://github.com/elabs/pundit) policies
+- Authorization via [Pundit](https://github.com/elabs/pundit) policies
 - Feature and unit tests for all of the above
 - Empty seed rake task
 
@@ -23,17 +23,15 @@ Once this gem is in 1.0, I will push an actual gem. Things I want in place befor
 
 ## Important Caveat: Pairing with Rails Template
 
-This gem is specifically made to be paired with the [Frontier Template](https://github.com/thefrontiergroup/rails-template). Technology choices in these generators are completely dependent on what is in the latest version of Frontier Template.
+This gem is specifically made to be paired with the [Moneysmart App Builder](https://github.com/moneysmartco/ms_app_cutter) and [Engine builder](https://github.com/moneysmartco/ms-engine-cutter)
 
 If you want to use this gem in another rails project, you'd need to rewrite some of the output of the generators.
-
-When I use these generators in other rails projects I only enable the model and seeds generators.
 
 ## Installing
 
 Add the following to the development group in your Gemfile:
 
-`gem 'frontier_generators', github: "thefrontiergroup/frontier_generators"`
+`gem 'moneysmart_generators', git: "moneysmartco/moneysmart_generators"`
 
 ## Basic Usage
 

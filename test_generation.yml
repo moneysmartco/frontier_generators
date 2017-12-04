@@ -1,0 +1,59 @@
+product:
+  attributes:
+    name:
+      # Set primary to true if you want this attribute to be used for #to_s and for
+      # checks in the feature specs. Chooses first attribute by default.
+      # primary: true
+      # Set to false if you don't want this attribute to be represented on the index
+      # Note: This is true by default
+      show_on_index: true
+      # Set to false to prevent this attribute being used in the form
+      # Note: this is true by default
+      show_on_form: true
+      # Add in support for sorting on this attribute using Ransack.
+      # sortable: true
+
+      # Choose one of the following
+      # type: boolean
+      # type: datetime
+      # type: date
+      # type: decimal
+      # type: integer
+      type: string
+      # type: text
+
+      # enum should also provide enum_options
+      # type: enum
+      # enum_options: ['admin', 'public']
+
+      validates:
+        # inclusion: [1,2,3,4]
+        length:
+          minimum: 0
+          maximum: 255
+          # is: 100
+          # in and within are aliases for eachother
+          # in: 0..100
+          # within: 0..100
+        # numericality: true
+        # Or, numericality can use one or more args
+        # numericality:
+        #   allow_nil: true
+        #   greater_than: 0
+        #   greater_than_or_equal_to: 0
+        #   equal_to: 0
+        #   less_than: 100
+        #   less_than_or_equal_to: 100
+        #   only_integer: true
+        presence: true
+        uniqueness: true
+        # Or, uniquenss can support the scope argument
+        # uniqueness:
+        #   scope: user_id
+    status:
+      type: enum
+      enum_options: ['draft', 'active']
+
+      validates:
+        inclusion: ['draft', 'active']
+        presence: true
