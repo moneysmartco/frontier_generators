@@ -26,8 +26,8 @@ RSpec.describe Frontier::Spec::ObjectSetup::AssociatedModelSetup do
 
     let(:expected) do
       raw = <<STRING
-let!(:address) { FactoryGirl.create(:address) }
-let!(:state) { FactoryGirl.create(:state) }
+let!(:address) { FactoryBot.create(:address) }
+let!(:state) { FactoryBot.create(:state) }
 STRING
       raw.rstrip
     end

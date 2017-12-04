@@ -43,7 +43,7 @@ STRING
         raw = <<STRING
 describe 'GET new' do
   subject { get :new, company_id: company.id }
-  let(:company) { FactoryGirl.create(:company) }
+  let(:company) { FactoryBot.create(:company) }
 
   authenticated_as(:admin) do
     it { should render_template(:new) }

@@ -7,12 +7,12 @@ class Frontier::FeatureSpec::TargetObjectLetStatement
   #
   # Example: Normal object
   #
-  # let!(:claim) { FactoryGirl.create(:claim) }
+  # let!(:claim) { FactoryBot.create(:claim) }
   #
   # Example: Nested object
   #
-  # let!(:claim) { FactoryGirl.create(:claim, client: client) }
-  # let(:client) { FactoryGirl.create(:client) }
+  # let!(:claim) { FactoryBot.create(:claim, client: client) }
+  # let(:client) { FactoryBot.create(:client) }
   #
   # * The parent object (client) will be used in route generation in other parts of the feature spec.
   #
@@ -39,12 +39,12 @@ private
   end
 
   def let_statement_for_resource(resouce_name, controller_prefixes, has_bang: true)
-    let_statement = Frontier::Spec::LetStatement.new(resouce_name, factory_girl_call(resouce_name, controller_prefixes))
+    let_statement = Frontier::Spec::LetStatement.new(resouce_name, factory_bot_call(resouce_name, controller_prefixes))
     let_statement.to_s(has_bang: has_bang)
   end
 
-  def factory_girl_call(resouce_name, controller_prefixes)
-    factory = Frontier::FactoryGirlSupport::Declaration.new("create", resouce_name)
+  def factory_bot_call(resouce_name, controller_prefixes)
+    factory = Frontier::FactoryBotSupport::Declaration.new("create", resouce_name)
     factory.to_s(factory_arguments_for(controller_prefixes))
   end
 

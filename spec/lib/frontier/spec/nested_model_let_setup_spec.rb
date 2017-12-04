@@ -16,15 +16,15 @@ describe Frontier::Spec::NestedModelLetSetup do
 
     context "with one nested model" do
       let(:controller_prefixes) { ["@site"] }
-      it { should eq("let(:site) { FactoryGirl.create(:site) }") }
+      it { should eq("let(:site) { FactoryBot.create(:site) }") }
     end
 
     context "with two nested models" do
       let(:controller_prefixes) { ["@company", "@site"] }
       let(:expected) do
         raw = <<STRING
-let(:site) { FactoryGirl.create(:site, company: company) }
-let(:company) { FactoryGirl.create(:company) }
+let(:site) { FactoryBot.create(:site, company: company) }
+let(:company) { FactoryBot.create(:company) }
 STRING
         raw.rstrip
       end

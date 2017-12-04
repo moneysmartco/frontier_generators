@@ -4,7 +4,7 @@ class Frontier::Factory
 
   def to_s
     raw = <<-STRING
-FactoryGirl.define do
+FactoryBot.define do
   factory #{model.name.as_symbol} do
 #{render_aligned_and_indented(2, "{", factoried_attributes)}
 

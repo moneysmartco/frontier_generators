@@ -2,12 +2,12 @@ class Frontier::Spec::ObjectSetup
 
   include Frontier::ModelProperty
 
-  # Render a set of params that can be used in the controller specs. We need to use FactoryGirl
+  # Render a set of params that can be used in the controller specs. We need to use FactoryBot
   # as much as possible to reduce duplication in the code.
   #
   # Params for a basic model might look like:
   #
-  #   let(:model_attributes) { FactoryGirl.attributes_for(:model) }
+  #   let(:model_attributes) { FactoryBot.attributes_for(:model) }
   #   let(:attributes) do
   #     {
   #       name: model_attributes[:name]
@@ -16,9 +16,9 @@ class Frontier::Spec::ObjectSetup
   #
   # Params for a more complicated model with nested associations might look like:
   #
-  #   let(:model_attributes) { FactoryGirl.attributes_for(:model) }
-  #   let(:address_attributes) { FactoryGirl.attributes_for(:address) }
-  #   let!(:state) { FactoryGirl.create(:state) }
+  #   let(:model_attributes) { FactoryBot.attributes_for(:model) }
+  #   let(:address_attributes) { FactoryBot.attributes_for(:address) }
+  #   let!(:state) { FactoryBot.create(:state) }
   #   let(:attributes) do
   #     {
   #       name: model_attributes[:name],

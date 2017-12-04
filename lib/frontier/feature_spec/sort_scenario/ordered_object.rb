@@ -8,11 +8,11 @@ class Frontier::FeatureSpec::SortScenario::OrderedObject
   end
 
   def first
-    Frontier::FactoryGirlSupport::Declaration.new(:create, model).to_s(first_options)
+    Frontier::FactoryBotSupport::Declaration.new(:create, model).to_s(first_options)
   end
 
   def second
-    Frontier::FactoryGirlSupport::Declaration.new(:create, model).to_s(second_options)
+    Frontier::FactoryBotSupport::Declaration.new(:create, model).to_s(second_options)
   end
 
 private

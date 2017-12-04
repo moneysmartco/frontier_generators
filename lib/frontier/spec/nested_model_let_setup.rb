@@ -6,11 +6,11 @@ class Frontier::Spec::NestedModelLetSetup
   # statements for them. EG:
   #
   # # One nested
-  # let(:company) { FactoryGirl.create(:company) }
+  # let(:company) { FactoryBot.create(:company) }
   #
   # # Two nested
-  # let(:site) { FactoryGirl.create(:site, company: company) }
-  # let(:company) { FactoryGirl.create(:company) }
+  # let(:site) { FactoryBot.create(:site, company: company) }
+  # let(:company) { FactoryBot.create(:company) }
   #
   def to_s
     nested_models = model.controller_prefixes.select(&:nested_model?)
@@ -20,9 +20,9 @@ class Frontier::Spec::NestedModelLetSetup
     #
     # Example: controller_prefixes: [@company, @client]
     #
-    # let!(:claim) { FactoryGirl.create(:claim, client: client) }
-    # let(:client) { FactoryGirl.create(:client, company: company) }
-    # let(:company) { FactoryGirl.create(:company) }
+    # let!(:claim) { FactoryBot.create(:claim, client: client) }
+    # let(:client) { FactoryBot.create(:client, company: company) }
+    # let(:company) { FactoryBot.create(:company) }
     #
     nested_models.reverse.map do |controller_prefix|
       # In the above example, the preceding_controller_prefixes will be [@company] for @client
@@ -43,13 +43,13 @@ private
     end
   end
 
-  def factory_girl_call(resouce_name, controller_prefixes)
-    factory = Frontier::FactoryGirlSupport::Declaration.new("create", resouce_name)
+  def factory_bot_call(resouce_name, controller_prefixes)
+    factory = Frontier::FactoryBotSupport::Declaration.new("create", resouce_name)
     factory.to_s(factory_arguments_for(controller_prefixes))
   end
 
   def let_statement_for_resource(resouce_name, controller_prefixes)
-    let_statement = Frontier::Spec::LetStatement.new(resouce_name, factory_girl_call(resouce_name, controller_prefixes))
+    let_statement = Frontier::Spec::LetStatement.new(resouce_name, factory_bot_call(resouce_name, controller_prefixes))
     let_statement.to_s(has_bang: false)
   end
 

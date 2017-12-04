@@ -19,7 +19,7 @@ describe Frontier::Factory do
 
     let(:expected) do
       raw = <<STRING
-FactoryGirl.define do
+FactoryBot.define do
   factory :user do
     association :address, strategy: :build
     first_name { FFaker::Name.first_name }

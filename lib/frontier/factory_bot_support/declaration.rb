@@ -1,4 +1,4 @@
-class Frontier::FactoryGirlSupport::Declaration
+class Frontier::FactoryBotSupport::Declaration
 
   attr_reader :factory_object, :verb
 
@@ -8,7 +8,7 @@ class Frontier::FactoryGirlSupport::Declaration
   end
 
   def to_s(factory_options={})
-    "FactoryGirl.#{verb}(#{factory_body(factory_options)})"
+    "FactoryBot.#{verb}(#{factory_body(factory_options)})"
   end
 
 private

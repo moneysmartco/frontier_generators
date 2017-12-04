@@ -1,4 +1,4 @@
-class Frontier::FactoryGirlSupport::AttributesFor
+class Frontier::FactoryBotSupport::AttributesFor
 
   attr_reader :model_or_association
 
@@ -7,7 +7,7 @@ class Frontier::FactoryGirlSupport::AttributesFor
   end
 
   def to_s
-    Frontier::FactoryGirlSupport::Declaration.new("attributes_for", model_or_association).to_s
+    Frontier::FactoryBotSupport::Declaration.new("attributes_for", model_or_association).to_s
   end
 
 end

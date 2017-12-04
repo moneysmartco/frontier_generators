@@ -18,7 +18,7 @@ RSpec.describe Frontier::Spec::ObjectSetup do
 
       let(:expected) do
         raw = <<STRING
-let(:model_name_attributes) { FactoryGirl.attributes_for(:model_name) }
+let(:model_name_attributes) { FactoryBot.attributes_for(:model_name) }
 let(:attributes) do
   {
     name: model_name_attributes[:name]
@@ -54,10 +54,10 @@ STRING
 
       let(:expected) do
         raw = <<STRING
-let(:model_name_attributes) { FactoryGirl.attributes_for(:model_name) }
-let(:other_address_attributes) { FactoryGirl.attributes_for(:address) }
-let!(:address) { FactoryGirl.create(:address) }
-let!(:state) { FactoryGirl.create(:state) }
+let(:model_name_attributes) { FactoryBot.attributes_for(:model_name) }
+let(:other_address_attributes) { FactoryBot.attributes_for(:address) }
+let!(:address) { FactoryBot.create(:address) }
+let!(:state) { FactoryBot.create(:state) }
 let(:attributes) do
   {
     address_id: address.id,

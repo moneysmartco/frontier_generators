@@ -9,7 +9,7 @@ describe Frontier::FeatureSpec::TargetObjectLetStatement do
 
     context "with no nested models" do
       let(:model) { Frontier::Model.new({model_name: {}}) }
-      it { should eq("let!(:model_name) { FactoryGirl.create(:model_name) }") }
+      it { should eq("let!(:model_name) { FactoryBot.create(:model_name) }") }
     end
 
     context "with a namespace" do
@@ -24,7 +24,7 @@ describe Frontier::FeatureSpec::TargetObjectLetStatement do
 
       let(:expected) do
         raw = <<STRING
-let!(:model_name) { FactoryGirl.create(:model_name) }
+let!(:model_name) { FactoryBot.create(:model_name) }
 STRING
         raw.rstrip
       end
@@ -44,8 +44,8 @@ STRING
 
       let(:expected) do
         raw = <<STRING
-let!(:model_name) { FactoryGirl.create(:model_name, cat: cat) }
-let(:cat) { FactoryGirl.create(:cat) }
+let!(:model_name) { FactoryBot.create(:model_name, cat: cat) }
+let(:cat) { FactoryBot.create(:cat) }
 STRING
         raw.rstrip
       end
@@ -65,9 +65,9 @@ STRING
 
       let(:expected) do
         raw = <<STRING
-let!(:model_name) { FactoryGirl.create(:model_name, cat: cat) }
-let(:cat) { FactoryGirl.create(:cat, user: user) }
-let(:user) { FactoryGirl.create(:user) }
+let!(:model_name) { FactoryBot.create(:model_name, cat: cat) }
+let(:cat) { FactoryBot.create(:cat, user: user) }
+let(:user) { FactoryBot.create(:user) }
 STRING
         raw.rstrip
       end
