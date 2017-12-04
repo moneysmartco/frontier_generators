@@ -3,7 +3,7 @@ require 'rails_helper'
 describe <%= policy_class_name %> do
   subject { policy }
   let(:policy) { <%= policy_class_name %>.new(user, <%= model.name.as_singular %>) }
-  let(<%= model.name.as_symbol %>) { FactoryBot.create(<%= model.name.as_symbol %>) }
+  let(<%= model.name.as_symbol %>) { create(<%= model.name.as_symbol %>) }
 
   describe <%= policy_class_name %>::Scope do
     let(:policy_scope) { <%= policy_class_name %>::Scope.new(user, scope) }
@@ -21,15 +21,15 @@ describe <%= policy_class_name %> do
       end
 
       context "for an admin" do
-        let(:user) { FactoryBot.build(:user, :admin) }
+        let(:user) { build(:user, :admin) }
 
-        it { should include(FactoryBot.create(<%= model.name.as_symbol %>)) }
+        it { should include(create(<%= model.name.as_symbol %>)) }
       end
 
       context "for a member" do
-        let(:user) { FactoryBot.build(:user, :member) }
+        let(:user) { build(:user, :member) }
 
-        it { should include(FactoryBot.create(<%= model.name.as_symbol %>)) }
+        it { should include(create(<%= model.name.as_symbol %>)) }
       end
     end
   end
@@ -46,7 +46,7 @@ describe <%= policy_class_name %> do
   end
 
   context "for an admin" do
-    let(:user) { FactoryBot.build(:user, :admin) }
+    let(:user) { build(:user, :admin) }
 
     describe '#permitted_attributes' do
       subject { policy.permitted_attributes }
@@ -59,7 +59,7 @@ describe <%= policy_class_name %> do
   end
 
   context "for a member" do
-    let(:user) { FactoryBot.build(:user, :member) }
+    let(:user) { build(:user, :member) }
 
     describe '#permitted_attributes' do
       subject { policy.permitted_attributes }

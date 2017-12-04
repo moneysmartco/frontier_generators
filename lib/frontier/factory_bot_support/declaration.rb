@@ -8,7 +8,7 @@ class Frontier::FactoryBotSupport::Declaration
   end
 
   def to_s(factory_options={})
-    "FactoryBot.#{verb}(#{factory_body(factory_options)})"
+    "#{verb}(#{factory_body(factory_options)})"
   end
 
 private

@@ -26,7 +26,7 @@ describe Frontier::ControllerSpec::DestroyAction do
           raw = <<STRING
 describe 'DELETE destroy' do
   subject { delete :destroy, id: user.id }
-  let!(:user) { FactoryBot.create(:user) }
+  let!(:user) { create(:user) }
 
   authenticated_as(:admin) do
     it "deletes the User" do
@@ -52,7 +52,7 @@ STRING
           raw = <<STRING
 describe 'DELETE destroy' do
   subject { delete :destroy, id: user.id }
-  let!(:user) { FactoryBot.create(:user) }
+  let!(:user) { create(:user) }
 
   authenticated_as(:admin) do
     it "deletes the User" do
@@ -78,8 +78,8 @@ STRING
         raw = <<STRING
 describe 'DELETE destroy' do
   subject { delete :destroy, company_id: company.id, id: user.id }
-  let!(:user) { FactoryBot.create(:user, company: company) }
-  let(:company) { FactoryBot.create(:company) }
+  let!(:user) { create(:user, company: company) }
+  let(:company) { create(:company) }
 
   authenticated_as(:admin) do
     it "deletes the User" do

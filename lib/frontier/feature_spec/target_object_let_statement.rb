@@ -7,12 +7,12 @@ class Frontier::FeatureSpec::TargetObjectLetStatement
   #
   # Example: Normal object
   #
-  # let!(:claim) { FactoryBot.create(:claim) }
+  # let!(:claim) { create(:claim) }
   #
   # Example: Nested object
   #
-  # let!(:claim) { FactoryBot.create(:claim, client: client) }
-  # let(:client) { FactoryBot.create(:client) }
+  # let!(:claim) { create(:claim, client: client) }
+  # let(:client) { create(:client) }
   #
   # * The parent object (client) will be used in route generation in other parts of the feature spec.
   #

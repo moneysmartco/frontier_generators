@@ -27,7 +27,7 @@ describe 'POST create' do
   authenticated_as(:admin) do
 
     context "with valid parameters" do
-      let(:user_attributes) { FactoryBot.attributes_for(:user) }
+      let(:user_attributes) { attributes_for(:user) }
       let(:attributes) do
         {
           name: user_attributes[:name]
@@ -72,13 +72,13 @@ STRING
         raw = <<STRING
 describe 'POST create' do
   subject { post :create, company_id: company.id, user: attributes }
-  let(:company) { FactoryBot.create(:company) }
+  let(:company) { create(:company) }
   let(:attributes) { {} }
 
   authenticated_as(:admin) do
 
     context "with valid parameters" do
-      let(:user_attributes) { FactoryBot.attributes_for(:user) }
+      let(:user_attributes) { attributes_for(:user) }
       let(:attributes) do
         {
           name: user_attributes[:name]

@@ -48,7 +48,7 @@ describe Frontier::Attribute::Validation::Uniqueness do
         let(:expected) do
           raw = <<STRING
 describe "validating uniqueness" do
-  subject { FactoryBot.create(:test_model) }
+  subject { create(:test_model) }
   it { should validate_uniqueness_of(:field_name) }
 end
 STRING
@@ -74,7 +74,7 @@ STRING
         let(:expected) do
           raw = <<STRING
 describe "validating uniqueness" do
-  subject { FactoryBot.create(:test_model) }
+  subject { create(:test_model) }
   it { should validate_uniqueness_of(:field_name).scoped_to(:jordan_id) }
 end
 STRING

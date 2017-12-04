@@ -23,7 +23,7 @@ describe Frontier::ControllerSpec::EditAction do
         raw = <<STRING
 describe 'GET edit' do
   subject { get :edit, id: user.id }
-  let!(:user) { FactoryBot.create(:user) }
+  let!(:user) { create(:user) }
 
   authenticated_as(:admin) do
     it { should render_template(:edit) }
@@ -46,8 +46,8 @@ STRING
         raw = <<STRING
 describe 'GET edit' do
   subject { get :edit, company_id: company.id, id: user.id }
-  let!(:user) { FactoryBot.create(:user, company: company) }
-  let(:company) { FactoryBot.create(:company) }
+  let!(:user) { create(:user, company: company) }
+  let(:company) { create(:company) }
 
   authenticated_as(:admin) do
     it { should render_template(:edit) }

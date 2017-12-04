@@ -6,11 +6,11 @@ class Frontier::Spec::NestedModelLetSetup
   # statements for them. EG:
   #
   # # One nested
-  # let(:company) { FactoryBot.create(:company) }
+  # let(:company) { create(:company) }
   #
   # # Two nested
-  # let(:site) { FactoryBot.create(:site, company: company) }
-  # let(:company) { FactoryBot.create(:company) }
+  # let(:site) { create(:site, company: company) }
+  # let(:company) { create(:company) }
   #
   def to_s
     nested_models = model.controller_prefixes.select(&:nested_model?)
@@ -20,9 +20,9 @@ class Frontier::Spec::NestedModelLetSetup
     #
     # Example: controller_prefixes: [@company, @client]
     #
-    # let!(:claim) { FactoryBot.create(:claim, client: client) }
-    # let(:client) { FactoryBot.create(:client, company: company) }
-    # let(:company) { FactoryBot.create(:company) }
+    # let!(:claim) { create(:claim, client: client) }
+    # let(:client) { create(:client, company: company) }
+    # let(:company) { create(:company) }
     #
     nested_models.reverse.map do |controller_prefix|
       # In the above example, the preceding_controller_prefixes will be [@company] for @client

@@ -7,7 +7,7 @@ class Frontier::Spec::ObjectSetup
   #
   # Params for a basic model might look like:
   #
-  #   let(:model_attributes) { FactoryBot.attributes_for(:model) }
+  #   let(:model_attributes) { attributes_for(:model) }
   #   let(:attributes) do
   #     {
   #       name: model_attributes[:name]
@@ -16,9 +16,9 @@ class Frontier::Spec::ObjectSetup
   #
   # Params for a more complicated model with nested associations might look like:
   #
-  #   let(:model_attributes) { FactoryBot.attributes_for(:model) }
-  #   let(:address_attributes) { FactoryBot.attributes_for(:address) }
-  #   let!(:state) { FactoryBot.create(:state) }
+  #   let(:model_attributes) { attributes_for(:model) }
+  #   let(:address_attributes) { attributes_for(:address) }
+  #   let!(:state) { create(:state) }
   #   let(:attributes) do
   #     {
   #       name: model_attributes[:name],

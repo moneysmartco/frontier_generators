@@ -6,7 +6,7 @@ RSpec.describe Frontier::FactoryBotSupport::AttributesFor do
     subject { Frontier::FactoryBotSupport::AttributesFor.new(model_or_association).to_s }
     let(:model_or_association) { build_model }
 
-    it { should eq("FactoryBot.attributes_for(:test_model)") }
+    it { should eq("attributes_for(:test_model)") }
   end
 
 end

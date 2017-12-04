@@ -16,7 +16,7 @@ RSpec.describe Frontier::Spec::ObjectSetup::AttributesSetup do
         })
       end
 
-      it { should eq("let(:model_name_attributes) { FactoryBot.attributes_for(:model_name) }") }
+      it { should eq("let(:model_name_attributes) { attributes_for(:model_name) }") }
     end
 
     context "with associations" do
@@ -34,15 +34,15 @@ RSpec.describe Frontier::Spec::ObjectSetup::AttributesSetup do
 
       context "without nested attributes" do
         let(:form_type) { "select" }
-        it { should eq("let(:model_name_attributes) { FactoryBot.attributes_for(:model_name) }") }
+        it { should eq("let(:model_name_attributes) { attributes_for(:model_name) }") }
       end
 
       context "with nested attributes" do
         let(:form_type) { "inline" }
         let(:expected) do
           raw = <<STRING
-let(:model_name_attributes) { FactoryBot.attributes_for(:model_name) }
-let(:address_attributes) { FactoryBot.attributes_for(:address) }
+let(:model_name_attributes) { attributes_for(:model_name) }
+let(:address_attributes) { attributes_for(:address) }
 STRING
           raw.rstrip
         end

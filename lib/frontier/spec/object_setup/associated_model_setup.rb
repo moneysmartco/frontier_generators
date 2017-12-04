@@ -5,7 +5,7 @@ class Frontier::Spec::ObjectSetup::AssociatedModelSetup
   # Provide the let declarations that will setup the associated models to be used in the params:
   #
   #   # In spec setup:
-  #   let!(:address) { FactoryBot.create(:address) }
+  #   let!(:address) { create(:address) }
   #
   #   # In params
   #   let(:params) { {address_id: address.id} }

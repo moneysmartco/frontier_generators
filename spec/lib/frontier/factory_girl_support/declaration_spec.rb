@@ -9,7 +9,7 @@ RSpec.describe Frontier::FactoryBotSupport::Declaration do
     describe "generating factory name" do
       context "with a Frontier::Model" do
         let(:factory_object) { build_model }
-        it { should eq("FactoryBot.build(:test_model)") }
+        it { should eq("build(:test_model)") }
       end
 
       context "with a Frontier::Association" do
@@ -19,18 +19,18 @@ RSpec.describe Frontier::FactoryBotSupport::Declaration do
 
         context "without class name" do
           let(:class_name) { nil }
-          it { should eq("FactoryBot.build(:association_name)") }
+          it { should eq("build(:association_name)") }
         end
 
         context "with class name" do
           let(:class_name) { "new_class_name" }
-          it { should eq("FactoryBot.build(:new_class_name)") }
+          it { should eq("build(:new_class_name)") }
         end
       end
 
       context "with a string" do
         let(:factory_object) { "yolotronix" }
-        it { should eq("FactoryBot.build(:yolotronix)") }
+        it { should eq("build(:yolotronix)") }
       end
     end
 
@@ -39,7 +39,7 @@ RSpec.describe Frontier::FactoryBotSupport::Declaration do
 
       context "with no options" do
         subject { factory_declaration.to_s }
-        it { should eq("FactoryBot.build(:yolotronix)") }
+        it { should eq("build(:yolotronix)") }
       end
 
       context "with some options" do
@@ -51,7 +51,7 @@ RSpec.describe Frontier::FactoryBotSupport::Declaration do
           }
         end
 
-        it { should eq("FactoryBot.build(:yolotronix, one: \"two\", three: :four)") }
+        it { should eq("build(:yolotronix, one: \"two\", three: :four)") }
       end
     end
   end

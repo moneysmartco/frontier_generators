@@ -8,7 +8,7 @@ class Frontier::Association::FactoryDeclaration
 
   ##
   # We use the :build strategy by default. Otherwise FG will persist the association
-  # even when we FactoryBot.build the parent object.
+  # even when we build the parent object.
   #
   # This is almost always problematic. Why persist children if we don't necessarily
   # want to persist the parent? EG: In a spec where we are trying to avoid

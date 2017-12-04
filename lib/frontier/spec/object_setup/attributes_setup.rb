@@ -5,8 +5,8 @@ class Frontier::Spec::ObjectSetup::AttributesSetup
   # Provide the let declarations that will be the basis of the attributes to be used in
   # the params:
   #
-  #   let(:model_attributes) { FactoryBot.attributes_for(:model) }
-  #   let(:address_attributes) { FactoryBot.attributes_for(:address) }
+  #   let(:model_attributes) { attributes_for(:model) }
+  #   let(:address_attributes) { attributes_for(:address) }
   #
   def to_s
     [
