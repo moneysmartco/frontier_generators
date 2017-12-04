@@ -4,11 +4,12 @@ $:.push File.expand_path("../lib", __FILE__)
 Gem::Specification.new do |s|
   s.name        = "moneysmart_generators"
   s.version     = "0.24.2"
-  s.authors     = ["Benjamin Robinson"]
+  s.authors     = ["Jordan Maguire", "Benjamin Robinson"]
   s.email       = ["ben.robinson@moneysmart.co"]
   s.homepage    = "https://github.com/moneysmartco/moneysmart_generators"
   s.summary     = "Comprehensive generators for CRUD"
   s.description = <<-EOF
+    Forked from the original frontier_generator design found here (https://github.com/jordanmaguire/frontier_generators)
     Use in conjunction with the app builder (https://github.com/moneysmartco/ms_app_cutter)
     Along with the engine builder (https://github.com/moneysmartco/ms-engine-cutter)
     to quickly scaffold usable engines with an admin interface for models.
