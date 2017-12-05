@@ -3,7 +3,7 @@ $:.push File.expand_path("../lib", __FILE__)
 
 Gem::Specification.new do |s|
   s.name        = "moneysmart_generators"
-  s.version     = "0.24.2"
+  s.version     = "0.25.0"
   s.authors     = ["Jordan Maguire", "Benjamin Robinson"]
   s.email       = ["ben.robinson@moneysmart.co"]
   s.homepage    = "https://github.com/moneysmartco/moneysmart_generators"
