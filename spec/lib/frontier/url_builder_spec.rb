@@ -33,10 +33,11 @@ describe Frontier::UrlBuilder do
   describe "model with no namespaces or nested models" do
     let(:controller_prefixes) { nil }
 
-    expect_route(:index_path,  to_eq: "users_path")
-    expect_route(:new_path,    to_eq: "new_user_path")
-    expect_route(:edit_path,   to_eq: "edit_user_path(user)")
-    expect_route(:delete_path, to_eq: "user_path(user)")
+    expect_route(:index_path,   to_eq: "users_path")
+    expect_route(:new_path,     to_eq: "new_user_path")
+    expect_route(:edit_path,    to_eq: "edit_user_path(user)")
+    expect_route(:delete_path,  to_eq: "user_path(user)")
+    expect_route(:landing_path, to_eq: "user_landing_path")
   end
 
   describe "model with a namespace" do
@@ -46,6 +47,7 @@ describe Frontier::UrlBuilder do
     expect_route(:new_path,    to_eq: "new_admin_user_path")
     expect_route(:edit_path,   to_eq: "edit_admin_user_path(user)")
     expect_route(:delete_path, to_eq: "admin_user_path(user)")
+    expect_route(:landing_path, to_eq: "admin_user_landing_path")
   end
 
   describe "model with a nested model" do
@@ -55,6 +57,7 @@ describe Frontier::UrlBuilder do
     expect_route(:new_path,    to_eq: "new_client_user_path(@client)")
     expect_route(:edit_path,   to_eq: "edit_client_user_path(@client, user)")
     expect_route(:delete_path, to_eq: "client_user_path(@client, user)")
+    expect_route(:landing_path, to_eq: "client_user_landing_path(@client)")
   end
 
   describe "model with a namespace and nested model" do
@@ -64,6 +67,7 @@ describe Frontier::UrlBuilder do
     expect_route(:new_path,    to_eq: "new_admin_client_user_path(@client)")
     expect_route(:edit_path,   to_eq: "edit_admin_client_user_path(@client, user)")
     expect_route(:delete_path, to_eq: "admin_client_user_path(@client, user)")
+    expect_route(:landing_path, to_eq: "admin_client_user_landing_path(@client)")
   end
 
   describe "model with a nested model and a namespace" do
@@ -73,6 +77,7 @@ describe Frontier::UrlBuilder do
     expect_route(:new_path,    to_eq: "new_client_admin_user_path(@client)")
     expect_route(:edit_path,   to_eq: "edit_client_admin_user_path(@client, user)")
     expect_route(:delete_path, to_eq: "client_admin_user_path(@client, user)")
+    expect_route(:landing_path, to_eq: "client_admin_user_landing_path(@client)")
   end
 
   describe "model with multiple nested model" do
@@ -82,6 +87,7 @@ describe Frontier::UrlBuilder do
     expect_route(:new_path,    to_eq: "new_client_doge_user_path(@client, @doge)")
     expect_route(:edit_path,   to_eq: "edit_client_doge_user_path(@client, @doge, user)")
     expect_route(:delete_path, to_eq: "client_doge_user_path(@client, @doge, user)")
+    expect_route(:landing_path, to_eq: "client_doge_user_landing_path(@client, @doge)")
   end
 
 end

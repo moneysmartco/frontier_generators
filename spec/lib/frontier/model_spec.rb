@@ -170,6 +170,28 @@ describe Frontier::Model do
       end
     end
 
+    describe 'assigns @skip_landing_page' do
+      subject { model.skip_landing_page? }
+
+      let(:model) { Frontier::Model.new(model_options) }
+      let(:model_options) { {test_model: {skip_landing_page: skip_landing_page}} }
+
+      context "when skip_landing_page is true" do
+        let(:skip_landing_page) { true }
+        it { should eq(true) }
+      end
+
+      context "when skip_landing_page is false" do
+        let(:skip_landing_page) { false }
+        it { should eq(false) }
+      end
+
+      context "when skip_landing_page is nil" do
+        let(:skip_landing_page) { nil }
+        it { should eq(true) }
+      end
+    end
+
     describe "hiding/showing UI elements" do
       let(:model) { Frontier::Model.new(model_options) }
       let(:model_options) { {test_model: {skip_ui: skip_ui}} }

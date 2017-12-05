@@ -13,6 +13,7 @@ class FrontierScaffoldGenerator < Frontier::Generator
   #   * Build views (_form, edit, index, new)
   #   * Build policy objects (with unit tests)
   #   * Build feature tests (index, create, update, destroy with soft-delete)
+  #   * Build the landing page
   #
   def scaffold
     # Generate models
@@ -30,6 +31,11 @@ class FrontierScaffoldGenerator < Frontier::Generator
 
       # Generate routes
       generate("frontier_route", ARGV[0])
+    end
+
+    unless model.skip_landing_page?
+      # Generate landing page
+      generate('frontier_landing_page_views', ARGV[0])
     end
 
     # Version 2

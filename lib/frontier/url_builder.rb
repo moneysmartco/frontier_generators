@@ -18,6 +18,10 @@ class Frontier::UrlBuilder
     "#{singular_resource_route_with_controller_prefixes}#{route_objects(show_member: true, show_nested_model_as_ivar: show_nested_model_as_ivar)}"
   end
 
+  def landing_path(show_nested_model_as_ivar: true)
+    "#{singular_resource_landing_route_with_controller_prefixes}#{route_objects(show_member: false, show_nested_model_as_ivar: show_nested_model_as_ivar)}"
+  end
+
 private
 
   # Namespaces do nothing, nested models add an ivar.
@@ -44,6 +48,13 @@ private
     resource_with_controller_prefixes(model.name.as_singular)
   end
 
+  # Namespace: Admin::Dongle::Resource
+  # Becomes admin_dongle_resource_landing_path
+  def singular_resource_landing_route_with_controller_prefixes
+    resource_with_controller_prefixes(model.name.as_singular, 'landing')
+  end
+
+
   def show_nested_model(controller_prefix, show_nested_model_as_ivar)
     if show_nested_model_as_ivar
       controller_prefix.name
@@ -52,12 +63,14 @@ private
     end
   end
 
-  def resource_with_controller_prefixes(resource)
+  def resource_with_controller_prefixes(resource, landing=nil)
     [
       *model.controller_prefixes.map(&:as_snake_case),
       resource,
-      "path"
-    ].join("_")
+      landing,
+      'path'
+    ].compact.join('_')
   end
+
 
 end

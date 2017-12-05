@@ -4,7 +4,7 @@ RSpec.describe Frontier::Model::ViewPaths do
 
   let(:view_paths) { Frontier::Model::ViewPaths.new(view_path_attributes) }
 
-  [:index, :new, :edit, :form].each do |action|
+  [:index, :new, :edit, :form, :landing].each do |action|
     describe "##{action}_path" do
       subject { view_paths.public_send("#{action}_path") }
       let(:view_path_attributes) { {action => file_path} }

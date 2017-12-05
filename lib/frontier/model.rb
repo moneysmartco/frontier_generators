@@ -6,6 +6,7 @@ class Frontier::Model
     :controller_prefixes,
     :name,
     :skip_factory,
+    :skip_landing_page,
     :skip_model,
     :skip_policies,
     :skip_seeds,
@@ -36,6 +37,7 @@ class Frontier::Model
     @skip_policies = configuration_for(attributes[model_name][:skip_policies])
     parse_skip_ui_options(configuration_for(attributes[model_name][:skip_ui]))
     @soft_delete   = configuration_for(attributes[model_name][:soft_delete], default: true)
+    @skip_landing_page = configuration_for(attributes[model_name][:skip_landing_page], default: true)
 
     # Additional utility items
     @url_builder = Frontier::UrlBuilder.new(self)
@@ -65,7 +67,8 @@ class Frontier::Model
     :skip_model,
     :skip_policies,
     :skip_seeds,
-    :skip_ui
+    :skip_ui,
+    :skip_landing_page
   ].each do |method_name|
 
     define_method("#{method_name}?") do
