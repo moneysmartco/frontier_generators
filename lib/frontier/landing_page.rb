@@ -1,0 +1,3 @@
+class Frontier::LandingPage
+
+end

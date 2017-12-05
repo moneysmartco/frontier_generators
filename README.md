@@ -9,6 +9,7 @@ By default, you get:
 - Authorization via [Pundit](https://github.com/elabs/pundit) policies
 - Feature and unit tests for all of the above
 - Empty seed rake task
+- Landing pages
 
 ## Important Caveat: In Progress
 
@@ -63,6 +64,8 @@ model_name:
   skip_ui: [create, index, update, delete]
   # Adds support to soft delete for this model (acts_as_paranoid). `true` by default
   soft_delete: true
+  # Do not generate a landing page. `true` by default.
+  skip_landing_page: false
 ```
 
 ## Namespaces and nested routes
