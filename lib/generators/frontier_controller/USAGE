@@ -2,7 +2,7 @@ Description:
     Explain the generator
 
 Example:
-    rails generate tfg_controller Thing
+    rails generate ms_controller Thing
 
     This will create:
         what/will/it/create

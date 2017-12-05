@@ -2,7 +2,7 @@ Description:
     Explain the generator
 
 Example:
-    rails generate tfg_route Thing
+    rails generate ms_route Thing
 
     This will create:
         what/will/it/create
