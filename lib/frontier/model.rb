@@ -70,7 +70,8 @@ class Frontier::Model
     :skip_policies,
     :skip_seeds,
     :skip_ui,
-    :skip_landing_page
+    :skip_landing_page,
+    :engine_name
   ].each do |method_name|
 
     define_method("#{method_name}?") do

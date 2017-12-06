@@ -8,6 +8,11 @@ class FrontierControllerGenerator < Frontier::Generator
       template "controller.rb", Frontier::Controller::ImplementationPath.new(model).to_s
       template "controller_spec.rb", Frontier::Controller::SpecPath.new(model).to_s
     end
+
+    unless model.skip_landing_page?
+      template 'page_controller.rb', Frontier::Controller::LandingPath.new(model).to_s
+      # template 'page_controller_spec.rb', Frontier::Controller::LandingSpecPath.new(model).to_s
+    end
   end
 
 protected
