@@ -73,8 +73,8 @@ class Frontier::Model
     :skip_landing_page
   ].each do |method_name|
 
-    define_method("this?") do
-      !!send(this)
+    define_method("#{method_name}?") do
+      !!send(method_name)
     end
 
   end
