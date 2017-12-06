@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    moneysmart_generators (0.24.2)
+    moneysmart_generators (0.25.0)
       indefinite_article (>= 0.2.4)
       rails
 

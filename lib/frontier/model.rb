@@ -4,6 +4,7 @@ class Frontier::Model
     :attributes,
     :authorization,
     :controller_prefixes,
+    :engine_name,
     :name,
     :skip_factory,
     :skip_landing_page,
@@ -40,6 +41,7 @@ class Frontier::Model
     @skip_landing_page = configuration_for(attributes[model_name][:skip_landing_page], default: true)
 
     # Additional utility items
+    @engine_name = attributes[model_name][:engine_name] || nil
     @url_builder = Frontier::UrlBuilder.new(self)
     @view_paths  = Frontier::Model::ViewPaths.new(attributes[model_name][:view_paths])
 
@@ -71,8 +73,8 @@ class Frontier::Model
     :skip_landing_page
   ].each do |method_name|
 
-    define_method("#{method_name}?") do
-      !!send(method_name)
+    define_method("this?") do
+      !!send(this)
     end
 
   end

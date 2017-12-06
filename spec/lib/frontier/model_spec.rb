@@ -234,6 +234,24 @@ describe Frontier::Model do
       end
 
     end
+
+    describe 'assigns @engine_name' do
+      subject { model.engine_name }
+      let(:model) { Frontier::Model.new(model_options) }
+      let(:model_options) { {test_model: {engine_name: engine_name}} }
+
+      context 'when engine_name is present' do
+        let(:engine_name) { 'Bengine' }
+
+        it { should eq('Bengine') }
+      end
+
+      context 'when engine_name is not present' do
+        let(:engine_name) {  }
+
+        it { should eq(nil) }
+      end
+    end
   end
 
   describe "#using_pundit?" do

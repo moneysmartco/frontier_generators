@@ -66,6 +66,8 @@ model_name:
   soft_delete: true
   # Do not generate a landing page. `true` by default.
   skip_landing_page: false
+  # Namespace inside Engine name.
+  engine_name: 'personal_loans'
 ```
 
 ## Namespaces and nested routes

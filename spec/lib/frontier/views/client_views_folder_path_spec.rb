@@ -8,30 +8,58 @@ describe Frontier::Views::ClientViewsFolderPath do
     let(:model) do
       Frontier::Model.new({
         "user_document" => {
-          controller_prefixes: controller_prefixes
+          controller_prefixes: controller_prefixes,
+          engine_name: engine_name
         }
       })
     end
 
-    context "when there are no namespaces or nested models" do
-      let(:controller_prefixes) { nil }
-      it { should eq("app/views/user_documents/pages") }
+    context 'with an engine_name defined' do
+      let(:engine_name) { 'bengine' }
+
+      context "when there are no namespaces or nested models" do
+        let(:controller_prefixes) { nil }
+        it { should eq("app/views/bengine/user_documents/pages") }
+      end
+
+      context "when there are namespaces" do
+        let(:controller_prefixes) { ["admin"] }
+        it { should eq("app/views/bengine/admin/user_documents/pages") }
+      end
+
+      context "when there are nested models" do
+        let(:controller_prefixes) { ["@client"] }
+        it { should eq("app/views/bengine/client/user_documents/pages") }
+      end
+
+      context "when there are both namespaces and nested models" do
+        let(:controller_prefixes) { ["admin", "@client"] }
+        it { should eq("app/views/bengine/admin/client/user_documents/pages") }
+      end
     end
 
-    context "when there are namespaces" do
-      let(:controller_prefixes) { ["admin"] }
-      it { should eq("app/views/admin/user_documents/pages") }
-    end
+    context 'withouth an engine_name defined' do
+      let(:engine_name) { }
 
-    context "when there are nested models" do
-      let(:controller_prefixes) { ["@client"] }
-      it { should eq("app/views/client/user_documents/pages") }
-    end
+      context "when there are no namespaces or nested models" do
+        let(:controller_prefixes) { nil }
+        it { should eq("app/views/user_documents/pages") }
+      end
 
-    context "when there are both namespaces and nested models" do
-      let(:controller_prefixes) { ["admin", "@client"] }
-      it { should eq("app/views/admin/client/user_documents/pages") }
+      context "when there are namespaces" do
+        let(:controller_prefixes) { ["admin"] }
+        it { should eq("app/views/admin/user_documents/pages") }
+      end
+
+      context "when there are nested models" do
+        let(:controller_prefixes) { ["@client"] }
+        it { should eq("app/views/client/user_documents/pages") }
+      end
+
+      context "when there are both namespaces and nested models" do
+        let(:controller_prefixes) { ["admin", "@client"] }
+        it { should eq("app/views/admin/client/user_documents/pages") }
+      end
     end
   end
-
 end
