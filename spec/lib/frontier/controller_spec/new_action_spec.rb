@@ -24,7 +24,7 @@ describe 'GET new' do
   subject { get :new }
 
   authenticated_as(:admin) do
-    it { should render_template(:new) }
+    it { is_expected.to render_template(:new) }
   end
 
   it_behaves_like "action requiring authentication"
@@ -34,7 +34,7 @@ STRING
         raw.rstrip
       end
 
-      it { should eq(expected) }
+      it { is_expected.to eq(expected) }
     end
 
     context "with one nested model" do
@@ -46,7 +46,7 @@ describe 'GET new' do
   let(:company) { create(:company) }
 
   authenticated_as(:admin) do
-    it { should render_template(:new) }
+    it { is_expected.to render_template(:new) }
   end
 
   it_behaves_like "action requiring authentication"
@@ -56,7 +56,7 @@ STRING
         raw.rstrip
       end
 
-      it { should eq(expected) }
+      it { is_expected.to eq(expected) }
     end
 
   end

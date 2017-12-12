@@ -20,14 +20,14 @@ describe Frontier::ControllerSpec::SubjectBlock do
     context "with no additional arguments and no nested models" do
       let(:model) { build_model }
 
-      it { should eq("subject { get :index }") }
+      it { is_expected.to eq("subject { get :index }") }
     end
 
     context "with some additional arguments" do
       let(:model) { build_model }
       let(:params) { {user: "attributes"} }
 
-      it { should eq("subject { get :index, user: attributes }") }
+      it { is_expected.to eq("subject { get :index, user: attributes }") }
     end
 
     context "with some nested models" do
@@ -44,7 +44,7 @@ describe Frontier::ControllerSpec::SubjectBlock do
         "subject { get :index, cat_id: cat.id, user_id: user.id, user: attributes }"
       end
 
-      it { should eq(expected) }
+      it { is_expected.to eq(expected) }
     end
 
   end

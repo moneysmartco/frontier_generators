@@ -10,7 +10,7 @@ feature 'Admin can view an index of <%= model.name.as_constant.pluralize %>' do
   end
 
   scenario do
-    within("table") do
+    within('table') do
       expect(page).to have_content(<%= model.name.as_singular %>.<%= model.primary_attribute.name %>)
     end
   end

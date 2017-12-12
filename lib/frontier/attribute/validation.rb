@@ -24,9 +24,9 @@ class Frontier::Attribute::Validation
   def as_spec
     case key
     when "inclusion"
-      "it { should validate_inclusion_of(#{attribute.as_symbol}).in_array(#{corresponding_constant.name}) }"
+      "it { is_expected.to validate_inclusion_of(#{attribute.as_symbol}).in_array(#{corresponding_constant.name}) }"
     when "presence"
-      "it { should validate_presence_of(#{attribute.as_symbol}) }"
+      "it { is_expected.to validate_presence_of(#{attribute.as_symbol}) }"
     else
       raise(ArgumentError, "unhandled validation requested: #{key}")
     end

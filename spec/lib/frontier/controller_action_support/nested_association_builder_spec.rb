@@ -8,7 +8,7 @@ RSpec.describe Frontier::ControllerActionSupport::NestedAssociationBuilder do
     context "a model without any associations" do
       let(:model) { build_model }
 
-      it { should eq("") }
+      it { is_expected.to eq("") }
     end
 
     context "a model with shallow nested associations" do
@@ -41,7 +41,7 @@ STRING
         raw.rstrip
       end
 
-      it { should eq(expected) }
+      it { is_expected.to eq(expected) }
     end
 
     context "a model with deeply nested associations" do
@@ -81,7 +81,7 @@ STRING
         raw.rstrip
       end
 
-      it { should eq(expected) }
+      it { is_expected.to eq(expected) }
     end
 
     context "a model with a nested association that has multiple nested associations" do
@@ -129,7 +129,7 @@ STRING
         raw.rstrip
       end
 
-      it { should eq(expected) }
+      it { is_expected.to eq(expected) }
     end
   end
 

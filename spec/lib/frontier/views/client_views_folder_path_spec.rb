@@ -19,22 +19,22 @@ describe Frontier::Views::ClientViewsFolderPath do
 
       context "when there are no namespaces or nested models" do
         let(:controller_prefixes) { nil }
-        it { should eq("app/views/bengine/pages") }
+        it { is_expected.to eq("app/views/bengine/pages") }
       end
 
       context "when there are namespaces" do
         let(:controller_prefixes) { ["admin"] }
-        it { should eq("app/views/bengine/admin/pages") }
+        it { is_expected.to eq("app/views/bengine/admin/pages") }
       end
 
       context "when there are nested models" do
         let(:controller_prefixes) { ["@client"] }
-        it { should eq("app/views/bengine/client/pages") }
+        it { is_expected.to eq("app/views/bengine/client/pages") }
       end
 
       context "when there are both namespaces and nested models" do
         let(:controller_prefixes) { ["admin", "@client"] }
-        it { should eq("app/views/bengine/admin/client/pages") }
+        it { is_expected.to eq("app/views/bengine/admin/client/pages") }
       end
     end
 
@@ -43,22 +43,22 @@ describe Frontier::Views::ClientViewsFolderPath do
 
       context "when there are no namespaces or nested models" do
         let(:controller_prefixes) { nil }
-        it { should eq("app/views/pages") }
+        it { is_expected.to eq("app/views/pages") }
       end
 
       context "when there are namespaces" do
         let(:controller_prefixes) { ["admin"] }
-        it { should eq("app/views/admin/pages") }
+        it { is_expected.to eq("app/views/admin/pages") }
       end
 
       context "when there are nested models" do
         let(:controller_prefixes) { ["@client"] }
-        it { should eq("app/views/client/pages") }
+        it { is_expected.to eq("app/views/client/pages") }
       end
 
       context "when there are both namespaces and nested models" do
         let(:controller_prefixes) { ["admin", "@client"] }
-        it { should eq("app/views/admin/client/pages") }
+        it { is_expected.to eq("app/views/admin/client/pages") }
       end
     end
   end

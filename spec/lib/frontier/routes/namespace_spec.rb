@@ -8,7 +8,7 @@ describe Frontier::Routes::Namespace do
     let(:name)  { "admin" }
     let(:depth) { 0 }
 
-    it { should eq("namespace :admin do") }
+    it { is_expected.to eq("namespace :admin do") }
   end
 
   describe "#denormalized_namespace_string" do
@@ -17,7 +17,7 @@ describe Frontier::Routes::Namespace do
     let(:name)  { "admin" }
     let(:depth) { 0 }
 
-    it { should eq("namespace(:admin) do") }
+    it { is_expected.to eq("namespace(:admin) do") }
   end
 
 end

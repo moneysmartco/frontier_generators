@@ -6,7 +6,7 @@ describe Frontier::FeatureSpec::OrderExpectationMethod do
     subject { order_expectation_method.method_name }
     let(:order_expectation_method) { Frontier::FeatureSpec::OrderExpectationMethod.new(build_model) }
 
-    it { should eq("expect_test_models_to_be_ordered") }
+    it { is_expected.to eq("expect_test_models_to_be_ordered") }
   end
 
   describe "#to_s" do
@@ -25,7 +25,7 @@ STRING
       raw.rstrip
     end
 
-    it { should eq(expected) }
+    it { is_expected.to eq(expected) }
   end
 
 end

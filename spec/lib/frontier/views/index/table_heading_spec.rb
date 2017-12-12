@@ -17,12 +17,12 @@ describe Frontier::Views::Index::TableHeading do
 
     context "sortable" do
       let(:sortable) { true }
-      it { should eq("%th= sort_link(@ransack_query, :name, \"Name\")") }
+      it { is_expected.to eq("%th= sort_link(@ransack_query, :name, \"Name\")") }
     end
 
     context "not sortable" do
       let(:sortable) { false }
-      it { should eq("%th Name") }
+      it { is_expected.to eq("%th Name") }
     end
   end
 

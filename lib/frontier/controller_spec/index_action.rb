@@ -6,7 +6,7 @@ describe 'GET index' do
 #{render_with_indent(1, render_setup)}
 
   authenticated_as(:admin) do
-    it { should render_template(:index) }
+    it { is_expected.to render_template(:index) }
   end
 
   it_behaves_like "action requiring authentication"

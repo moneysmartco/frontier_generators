@@ -14,12 +14,12 @@ describe Frontier::Attribute::Validation::Uniqueness do
 
     context "with args" do
       let(:args) { {"scope" => "user_id"} }
-      it { should eq("uniqueness: {scope: :user_id}") }
+      it { is_expected.to eq("uniqueness: {scope: :user_id}") }
     end
 
     context "with boolean" do
       let(:args) { true }
-      it { should eq("uniqueness: true") }
+      it { is_expected.to eq("uniqueness: true") }
     end
   end
 
@@ -49,13 +49,13 @@ describe Frontier::Attribute::Validation::Uniqueness do
           raw = <<STRING
 describe "validating uniqueness" do
   subject { create(:test_model) }
-  it { should validate_uniqueness_of(:field_name) }
+  it { is_expected.to validate_uniqueness_of(:field_name) }
 end
 STRING
           raw.rstrip
         end
 
-        it { should eq(expected) }
+        it { is_expected.to eq(expected) }
       end
     end
 
@@ -75,13 +75,13 @@ STRING
           raw = <<STRING
 describe "validating uniqueness" do
   subject { create(:test_model) }
-  it { should validate_uniqueness_of(:field_name).scoped_to(:jordan_id) }
+  it { is_expected.to validate_uniqueness_of(:field_name).scoped_to(:jordan_id) }
 end
 STRING
           raw.rstrip
         end
 
-        it { should eq(expected) }
+        it { is_expected.to eq(expected) }
       end
 
       context "other type" do

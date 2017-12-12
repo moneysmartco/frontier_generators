@@ -26,7 +26,7 @@ describe 'GET edit' do
   let!(:user) { create(:user) }
 
   authenticated_as(:admin) do
-    it { should render_template(:edit) }
+    it { is_expected.to render_template(:edit) }
   end
 
   it_behaves_like "action requiring authentication"
@@ -36,7 +36,7 @@ STRING
         raw.rstrip
       end
 
-      it { should eq(expected) }
+      it { is_expected.to eq(expected) }
     end
 
     context "with nested models" do
@@ -50,7 +50,7 @@ describe 'GET edit' do
   let(:company) { create(:company) }
 
   authenticated_as(:admin) do
-    it { should render_template(:edit) }
+    it { is_expected.to render_template(:edit) }
   end
 
   it_behaves_like "action requiring authentication"
@@ -60,7 +60,7 @@ STRING
         raw.rstrip
       end
 
-      it { should eq(expected) }
+      it { is_expected.to eq(expected) }
     end
   end
 

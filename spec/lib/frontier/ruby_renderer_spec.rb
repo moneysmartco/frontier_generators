@@ -10,12 +10,12 @@ RSpec.describe Frontier::RubyRenderer do
 
       context "with no indents" do
         let(:number_of_indents) { 0 }
-        it { should eq("Jordan rules!") }
+        it { is_expected.to eq("Jordan rules!") }
       end
 
       context "with some indents" do
         let(:number_of_indents) { 1 }
-        it { should eq("  Jordan rules!") }
+        it { is_expected.to eq("  Jordan rules!") }
       end
     end
 
@@ -38,7 +38,7 @@ STRING
           raw.rstrip
         end
         let(:number_of_indents) { 0 }
-        it { should eq(expected) }
+        it { is_expected.to eq(expected) }
       end
 
       context "with some indents" do
@@ -51,7 +51,7 @@ STRING
           raw.rstrip
         end
         let(:number_of_indents) { 1 }
-        it { should eq(expected) }
+        it { is_expected.to eq(expected) }
       end
     end
 
@@ -76,7 +76,7 @@ STRING
       end
 
       let(:number_of_indents) { 1 }
-      it { should eq(expected) }
+      it { is_expected.to eq(expected) }
     end
   end
 

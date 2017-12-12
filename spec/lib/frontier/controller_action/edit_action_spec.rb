@@ -17,7 +17,7 @@ STRING
         raw.rstrip
       end
 
-      it { should eq(expected) }
+      it { is_expected.to eq(expected) }
     end
 
     context "a model with shallow nested associations" do
@@ -54,7 +54,7 @@ STRING
         raw.rstrip
       end
 
-      it { should eq(expected) }
+      it { is_expected.to eq(expected) }
     end
 
     context "a model with deeply nested associations" do
@@ -98,7 +98,7 @@ STRING
         raw.rstrip
       end
 
-      it { should eq(expected) }
+      it { is_expected.to eq(expected) }
     end
 
     context "a model with a nested association that has multiple nested associations" do
@@ -150,7 +150,7 @@ STRING
         raw.rstrip
       end
 
-      it { should eq(expected) }
+      it { is_expected.to eq(expected) }
     end
   end
 

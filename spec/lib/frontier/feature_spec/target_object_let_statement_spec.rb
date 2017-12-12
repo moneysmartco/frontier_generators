@@ -9,7 +9,7 @@ describe Frontier::FeatureSpec::TargetObjectLetStatement do
 
     context "with no nested models" do
       let(:model) { Frontier::Model.new({model_name: {}}) }
-      it { should eq("let!(:model_name) { create(:model_name) }") }
+      it { is_expected.to eq("let!(:model_name) { create(:model_name) }") }
     end
 
     context "with a namespace" do
@@ -29,7 +29,7 @@ STRING
         raw.rstrip
       end
 
-      it { should eq(expected) }
+      it { is_expected.to eq(expected) }
     end
 
     context "with a nested model" do
@@ -50,7 +50,7 @@ STRING
         raw.rstrip
       end
 
-      it { should eq(expected) }
+      it { is_expected.to eq(expected) }
     end
 
     context "with some nested models" do
@@ -72,7 +72,7 @@ STRING
         raw.rstrip
       end
 
-      it { should eq(expected) }
+      it { is_expected.to eq(expected) }
     end
   end
 

@@ -62,7 +62,7 @@ describe Frontier::StringAligner do
 
     context "when there are no matches" do
       let(:strings) { ["jordan!"] }
-      it { should eq(["jordan!"]) }
+      it { is_expected.to eq(["jordan!"]) }
     end
 
   end

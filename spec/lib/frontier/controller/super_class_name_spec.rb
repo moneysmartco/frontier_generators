@@ -15,22 +15,22 @@ describe Frontier::Controller::SuperClassName do
 
     context "when there are no namespaces or nested models" do
       let(:controller_prefixes) { nil }
-      it { should eq("ApplicationController") }
+      it { is_expected.to eq("ApplicationController") }
     end
 
     context "when there are namespaces" do
       let(:controller_prefixes) { ["admin"] }
-      it { should eq("Admin::BaseController") }
+      it { is_expected.to eq("Admin::BaseController") }
     end
 
     context "when there are nested models" do
       let(:controller_prefixes) { ["@client"] }
-      it { should eq("Client::BaseController") }
+      it { is_expected.to eq("Client::BaseController") }
     end
 
     context "when there are both namespaces and nested models" do
       let(:controller_prefixes) { ["admin", "@client"] }
-      it { should eq("Admin::Client::BaseController") }
+      it { is_expected.to eq("Admin::Client::BaseController") }
     end
   end
 

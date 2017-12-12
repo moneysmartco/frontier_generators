@@ -23,13 +23,13 @@ describe <%= policy_class_name %> do
       context "for an admin" do
         let(:user) { build(:user, :admin) }
 
-        it { should include(create(<%= model.name.as_symbol %>)) }
+        it { is_expected.to include(create(<%= model.name.as_symbol %>)) }
       end
 
       context "for a member" do
         let(:user) { build(:user, :member) }
 
-        it { should include(create(<%= model.name.as_symbol %>)) }
+        it { is_expected.to include(create(<%= model.name.as_symbol %>)) }
       end
     end
   end
@@ -39,7 +39,7 @@ describe <%= policy_class_name %> do
 
     describe '#permitted_attributes' do
       subject { policy.permitted_attributes }
-      it { should be_empty }
+      it { is_expected.to be_empty }
     end
 
     it_behaves_like "Policy without access to CRUD actions"
@@ -51,7 +51,7 @@ describe <%= policy_class_name %> do
     describe '#permitted_attributes' do
       subject { policy.permitted_attributes }
 <% model.attributes.each do |attribute| -%>
-      it { should include(<%= attribute.as_field_name %>) }
+      it { is_expected.to include(<%= attribute.as_field_name %>) }
 <% end -%>
     end
 
@@ -64,7 +64,7 @@ describe <%= policy_class_name %> do
     describe '#permitted_attributes' do
       subject { policy.permitted_attributes }
 <% model.attributes.each do |attribute| -%>
-      it { should include(<%= attribute.as_field_name %>) }
+      it { is_expected.to include(<%= attribute.as_field_name %>) }
 <% end -%>
     end
 

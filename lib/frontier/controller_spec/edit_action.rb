@@ -6,7 +6,7 @@ describe 'GET edit' do
 #{render_with_indent(1, render_setup)}
 
   authenticated_as(:admin) do
-    it { should render_template(:edit) }
+    it { is_expected.to render_template(:edit) }
   end
 
   it_behaves_like "action requiring authentication"

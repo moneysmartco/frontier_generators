@@ -22,7 +22,7 @@ private
     if file_path.present?
       parse_model(file_path)
     else
-      raise(ArgumentError, "No file path passed through. Please pass the path to a YML file through.")
+      raise(ArgumentError, 'No file path passed through. Please pass the path to a YML file through.')
     end
   end
 

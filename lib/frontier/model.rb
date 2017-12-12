@@ -24,20 +24,20 @@ class Frontier::Model
     unless controller_prefixes.is_a?(Array)
       raise(ArgumentError, "Invalid value for 'controller_prefixes' passed through: #{controller_prefixes}. Must be an array. EG: [:admin]")
     end
-    @controller_prefixes = @controller_prefixes.map {|prefix| Frontier::ControllerPrefix.new(prefix)}
+    @controller_prefixes = @controller_prefixes.map { |prefix| Frontier::ControllerPrefix.new(prefix) }
     # TODO: Assert validity of attributes
-    @attributes = (attributes[model_name][:attributes] || []).collect do |name, properties|
+    @attributes = (attributes[model_name][:attributes] || []).map do |name, properties|
       Frontier::Attribute::Factory.build_attribute_or_association(self, name, properties)
     end
 
     # Configuration of generated items
-    @authorization = configuration_for(attributes[model_name][:authorization], default: "pundit")
+    @authorization = configuration_for(attributes[model_name][:authorization], default: 'pundit')
     @skip_factory  = configuration_for(attributes[model_name][:skip_factory])
     @skip_model    = configuration_for(attributes[model_name][:skip_model])
     @skip_seeds    = configuration_for(attributes[model_name][:skip_seeds])
     @skip_policies = configuration_for(attributes[model_name][:skip_policies])
     parse_skip_ui_options(configuration_for(attributes[model_name][:skip_ui]))
-    @soft_delete   = configuration_for(attributes[model_name][:soft_delete], default: true)
+    @soft_delete = configuration_for(attributes[model_name][:soft_delete], default: true)
     @skip_landing_page = configuration_for(attributes[model_name][:skip_landing_page], default: true)
 
     # Additional utility items
@@ -97,26 +97,26 @@ class Frontier::Model
   end
 
   def using_pundit?
-    authorization.downcase == "pundit"
+    authorization.casecmp('pundit').zero?
   end
 
-private
+  private
 
-  def configuration_for(attribute, options={ default: false })
+  def configuration_for(attribute, options = { default: false })
     attribute.nil? ? options[:default] : attribute
   end
 
   def parse_skip_ui_options(skip_ui_raw)
     if skip_ui_raw.is_a?(Array)
-      @skip_index = skip_ui_raw.include?("index")
-      @skip_delete = skip_ui_raw.include?("delete")
-      @skip_create = skip_ui_raw.include?("create")
-      @skip_update = skip_ui_raw.include?("update")
+      @skip_index = skip_ui_raw.include?('index')
+      @skip_delete = skip_ui_raw.include?('delete')
+      @skip_create = skip_ui_raw.include?('create')
+      @skip_update = skip_ui_raw.include?('update')
     else
       @skip_ui = skip_ui_raw
     end
   end
 end
 
-require_relative "model/name"
-require_relative "model/view_paths"
+require_relative 'model/name'
+require_relative 'model/view_paths'

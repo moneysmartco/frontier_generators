@@ -16,7 +16,7 @@ RSpec.describe Frontier::Spec::ObjectSetup::AttributesSetup do
         })
       end
 
-      it { should eq("let(:model_name_attributes) { attributes_for(:model_name) }") }
+      it { is_expected.to eq("let(:model_name_attributes) { attributes_for(:model_name) }") }
     end
 
     context "with associations" do
@@ -34,7 +34,7 @@ RSpec.describe Frontier::Spec::ObjectSetup::AttributesSetup do
 
       context "without nested attributes" do
         let(:form_type) { "select" }
-        it { should eq("let(:model_name_attributes) { attributes_for(:model_name) }") }
+        it { is_expected.to eq("let(:model_name_attributes) { attributes_for(:model_name) }") }
       end
 
       context "with nested attributes" do
@@ -47,7 +47,7 @@ STRING
           raw.rstrip
         end
 
-        it { should eq(expected) }
+        it { is_expected.to eq(expected) }
       end
     end
 

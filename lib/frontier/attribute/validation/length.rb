@@ -2,7 +2,7 @@ class Frontier::Attribute::Validation::Length < Frontier::Attribute::Validation
 
   def as_spec
     if args.present?
-      "it { should #{full_spec} }"
+      "it { is_expected.to #{full_spec} }"
     else
       raise(ArgumentError, "length validation must have at least one argument")
     end

@@ -25,22 +25,22 @@ describe Frontier::Association do
 
       context "when 'inline'" do
         let(:form_type) { "inline" }
-        it { should eq("inline") }
+        it { is_expected.to eq("inline") }
       end
 
       context "when 'select'" do
         let(:form_type) { "select" }
-        it { should eq("select") }
+        it { is_expected.to eq("select") }
       end
 
       context "when something blank" do
         let(:form_type) { "" }
-        it { should eq("select") }
+        it { is_expected.to eq("select") }
       end
 
       context "when something unexpected" do
         let(:form_type) { "jordan_rules" }
-        it { should eq("select") }
+        it { is_expected.to eq("select") }
       end
     end
 
@@ -68,7 +68,7 @@ describe Frontier::Association do
       let(:expected_output) { ":dong" }
       let(:options) { {class_name: "Dong"} }
 
-      it { should eq(expected_output) }
+      it { is_expected.to eq(expected_output) }
     end
 
     context "without class_name declared" do
@@ -76,12 +76,12 @@ describe Frontier::Association do
 
       context "when field_name includes _id already" do
         let(:name) { "model_id" }
-        it { should eq(expected_output) }
+        it { is_expected.to eq(expected_output) }
       end
 
       context "when field_name doesn't include _id" do
         let(:name) { "model" }
-        it { should eq(expected_output) }
+        it { is_expected.to eq(expected_output) }
       end
     end
   end
@@ -91,12 +91,12 @@ describe Frontier::Association do
 
     context "when field_name includes _id already" do
       let(:name) { "model_id" }
-      it { should eq(":model_id") }
+      it { is_expected.to eq(":model_id") }
     end
 
     context "when field_name doesn't include _id" do
       let(:name) { "model" }
-      it { should eq(":model_id") }
+      it { is_expected.to eq(":model_id") }
     end
   end
 
@@ -105,18 +105,18 @@ describe Frontier::Association do
 
     context "when field_name includes _id already" do
       let(:name) { "model_id" }
-      it { should eq(":model") }
+      it { is_expected.to eq(":model") }
     end
 
     context "when field_name doesn't include _id" do
       let(:name) { "model" }
-      it { should eq(":model") }
+      it { is_expected.to eq(":model") }
     end
   end
 
   describe "#is_association?" do
     subject { association.is_association? }
-    it { should eq(true) }
+    it { is_expected.to eq(true) }
   end
 
   describe "#is_nested?" do
@@ -125,12 +125,12 @@ describe Frontier::Association do
 
     context "when form is 'inline'" do
       let(:form_type) { "inline" }
-      it { should eq(true) }
+      it { is_expected.to eq(true) }
     end
 
     context "when form is 'select'" do
       let(:form_type) { "select" }
-      it { should eq(false) }
+      it { is_expected.to eq(false) }
     end
 
   end

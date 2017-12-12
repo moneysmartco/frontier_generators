@@ -30,8 +30,4 @@ class <%= model.name.as_constant %> < ActiveRecord::Base
 <% end -%>
 
 <% end -%>
-  def to_s
-    <%= model.primary_attribute.name %>
-  end
-
 end

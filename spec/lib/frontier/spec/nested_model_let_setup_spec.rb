@@ -11,12 +11,12 @@ describe Frontier::Spec::NestedModelLetSetup do
 
     context "with no nested models" do
       let(:controller_prefixes) { [] }
-      it { should eq("") }
+      it { is_expected.to eq("") }
     end
 
     context "with one nested model" do
       let(:controller_prefixes) { ["@site"] }
-      it { should eq("let(:site) { create(:site) }") }
+      it { is_expected.to eq("let(:site) { create(:site) }") }
     end
 
     context "with two nested models" do
@@ -30,7 +30,7 @@ STRING
       end
 
 
-      it { should eq(expected) }
+      it { is_expected.to eq(expected) }
     end
   end
 

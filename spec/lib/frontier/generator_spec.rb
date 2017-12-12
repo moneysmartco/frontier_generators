@@ -19,7 +19,7 @@ describe Frontier::Generator do
 
     context "with a valid file_path" do
       let(:file_path) { test_model_path }
-      it { should be_kind_of(Frontier::Generator) }
+      it { is_expected.to be_kind_of(Frontier::Generator) }
     end
   end
 

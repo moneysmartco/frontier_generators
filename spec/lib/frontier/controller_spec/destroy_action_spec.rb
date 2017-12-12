@@ -33,7 +33,7 @@ describe 'DELETE destroy' do
       subject
       expect(user.reload.deleted_at).to be_present
     end
-    it { should redirect_to(users_path) }
+    it { is_expected.to redirect_to(users_path) }
   end
 
   it_behaves_like "action requiring authentication"
@@ -43,7 +43,7 @@ STRING
           raw.rstrip
         end
 
-        it { should eq(expected) }
+        it { is_expected.to eq(expected) }
       end
 
       context "not using soft delete" do
@@ -58,7 +58,7 @@ describe 'DELETE destroy' do
     it "deletes the User" do
       expect { subject }.to change { User.count }.by(-1)
     end
-    it { should redirect_to(users_path) }
+    it { is_expected.to redirect_to(users_path) }
   end
 
   it_behaves_like "action requiring authentication"
@@ -68,7 +68,7 @@ STRING
           raw.rstrip
         end
 
-        it { should eq(expected) }
+        it { is_expected.to eq(expected) }
       end
     end
 
@@ -86,7 +86,7 @@ describe 'DELETE destroy' do
       subject
       expect(user.reload.deleted_at).to be_present
     end
-    it { should redirect_to(company_users_path(company)) }
+    it { is_expected.to redirect_to(company_users_path(company)) }
   end
 
   it_behaves_like "action requiring authentication"
@@ -96,7 +96,7 @@ STRING
         raw.rstrip
       end
 
-      it { should eq(expected) }
+      it { is_expected.to eq(expected) }
     end
   end
 

@@ -20,7 +20,7 @@ STRING
       raw.rstrip
     end
 
-    it { should eq(expected) }
+    it { is_expected.to eq(expected) }
   end
 
 end

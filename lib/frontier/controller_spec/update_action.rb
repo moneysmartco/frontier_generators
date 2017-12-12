@@ -19,7 +19,7 @@ describe 'POST update' do
 #{render_with_indent(4, Frontier::Spec::ObjectAttributesAssertion.new(model).to_s)}
       end
 
-      it { should redirect_to(#{model.url_builder.index_path(show_nested_model_as_ivar: false)}) }
+      it { is_expected.to redirect_to(#{model.url_builder.index_path(show_nested_model_as_ivar: false)}) }
 
       it "sets a notice for the user" do
         subject

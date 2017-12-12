@@ -19,12 +19,12 @@ RSpec.describe Frontier::Spec::LetStatement do
     describe "including a bang" do
       context "when has_bang" do
         let(:has_bang) { true }
-        it { should eq("let!(:jordan) { rules }") }
+        it { is_expected.to eq("let!(:jordan) { rules }") }
       end
 
       context "when !has_bang" do
         let(:has_bang) { false }
-        it { should eq("let(:jordan) { rules }") }
+        it { is_expected.to eq("let(:jordan) { rules }") }
       end
     end
 
@@ -41,19 +41,19 @@ TEXT
         end
 
         context "and the given string has no indents" do
-          it { should eq(expected) }
+          it { is_expected.to eq(expected) }
         end
 
         context "and the given string has indents" do
           let(:text) { "\nrules" }
-          it { should eq(expected) }
+          it { is_expected.to eq(expected) }
         end
 
       end
 
       context "when !is_multiline" do
         let(:is_multiline) { false }
-        it { should eq("let(:jordan) { rules }") }
+        it { is_expected.to eq("let(:jordan) { rules }") }
       end
     end
   end

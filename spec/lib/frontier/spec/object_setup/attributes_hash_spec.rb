@@ -23,7 +23,7 @@ RSpec.describe Frontier::Spec::ObjectSetup::AttributesHash do
         }
       end
 
-      it { should eq(expected) }
+      it { is_expected.to eq(expected) }
     end
 
     context "with a simple set of attributes" do
@@ -45,7 +45,7 @@ RSpec.describe Frontier::Spec::ObjectSetup::AttributesHash do
         }
       end
 
-      it { should eq(expected) }
+      it { is_expected.to eq(expected) }
     end
 
     context "with an association that is not nested" do
@@ -69,7 +69,7 @@ RSpec.describe Frontier::Spec::ObjectSetup::AttributesHash do
         }
       end
 
-      it { should eq(expected) }
+      it { is_expected.to eq(expected) }
     end
 
     context "with a shallow nested set of attributes" do
@@ -103,7 +103,7 @@ RSpec.describe Frontier::Spec::ObjectSetup::AttributesHash do
         }
       end
 
-      it { should eq(expected) }
+      it { is_expected.to eq(expected) }
     end
 
     context "with a deeply nested set of attributes" do
@@ -145,7 +145,7 @@ RSpec.describe Frontier::Spec::ObjectSetup::AttributesHash do
         }
       end
 
-      it { should eq(expected) }
+      it { is_expected.to eq(expected) }
     end
   end
 

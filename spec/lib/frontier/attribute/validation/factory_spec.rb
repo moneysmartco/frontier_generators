@@ -11,22 +11,22 @@ describe Frontier::Attribute::Validation::Factory do
 
     context "when key is 'length'" do
       let(:key) { "length" }
-      it { should be_kind_of(Frontier::Attribute::Validation::Length) }
+      it { is_expected.to be_kind_of(Frontier::Attribute::Validation::Length) }
     end
 
     context "when key is 'numericality'" do
       let(:key) { "numericality" }
-      it { should be_kind_of(Frontier::Attribute::Validation::Numericality) }
+      it { is_expected.to be_kind_of(Frontier::Attribute::Validation::Numericality) }
     end
 
     context "when key is not one of the above cases" do
       let(:key) { "presence" }
-      it { should be_kind_of(Frontier::Attribute::Validation) }
+      it { is_expected.to be_kind_of(Frontier::Attribute::Validation) }
     end
 
     context "when key is 'uniqueness'" do
       let(:key) { "uniqueness" }
-      it { should be_kind_of(Frontier::Attribute::Validation::Uniqueness) }
+      it { is_expected.to be_kind_of(Frontier::Attribute::Validation::Uniqueness) }
     end
   end
 

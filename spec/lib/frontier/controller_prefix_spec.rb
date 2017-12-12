@@ -9,12 +9,12 @@ describe Frontier::ControllerPrefix do
 
     context "when namespace" do
       let(:name) { "model_name" }
-      it { should eq(":model_name") }
+      it { is_expected.to eq(":model_name") }
     end
 
     context "when nested resource" do
       let(:name) { "@model_name" }
-      it { should eq(name) }
+      it { is_expected.to eq(name) }
     end
   end
 
@@ -23,12 +23,12 @@ describe Frontier::ControllerPrefix do
 
     context "when namespace" do
       let(:name) { "model_name" }
-      it { should eq("model_name") }
+      it { is_expected.to eq("model_name") }
     end
 
     context "when nested resource" do
       let(:name) { "@model_name" }
-      it { should eq("model_name") }
+      it { is_expected.to eq("model_name") }
     end
   end
 
@@ -37,12 +37,12 @@ describe Frontier::ControllerPrefix do
 
     context "when namespace" do
       let(:name) { "model_name" }
-      it { should eq(nil) }
+      it { is_expected.to eq(nil) }
     end
 
     context "when nested resource" do
       let(:name) { "@model_name" }
-      it { should eq("@model_name") }
+      it { is_expected.to eq("@model_name") }
     end
   end
 
@@ -51,12 +51,12 @@ describe Frontier::ControllerPrefix do
 
     context "when namespace" do
       let(:name) { "model_name" }
-      it { should eq(true) }
+      it { is_expected.to eq(true) }
     end
 
     context "when nested resource" do
       let(:name) { "@model_name" }
-      it { should eq(false) }
+      it { is_expected.to eq(false) }
     end
   end
 
@@ -65,12 +65,12 @@ describe Frontier::ControllerPrefix do
 
     context "when namespace" do
       let(:name) { "model_name" }
-      it { should eq(false) }
+      it { is_expected.to eq(false) }
     end
 
     context "when nested resource" do
       let(:name) { "@model_name" }
-      it { should eq(true) }
+      it { is_expected.to eq(true) }
     end
   end
 

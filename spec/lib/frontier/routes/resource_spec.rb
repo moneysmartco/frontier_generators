@@ -18,7 +18,7 @@ end
 STRING
         end
 
-        it { should eq(true) }
+        it { is_expected.to eq(true) }
       end
 
       context "when the resource exists WITHOUT brackets" do
@@ -30,7 +30,7 @@ end
 STRING
         end
 
-        it { should eq(true) }
+        it { is_expected.to eq(true) }
       end
 
       context "when the resource doesn't exist" do
@@ -42,7 +42,7 @@ end
 STRING
         end
 
-        it { should eq(false) }
+        it { is_expected.to eq(false) }
       end
     end
 
@@ -64,7 +64,7 @@ end
 STRING
         end
 
-        it { should eq(true) }
+        it { is_expected.to eq(true) }
       end
 
       context "when the resource exists WITHOUT brackets" do
@@ -78,7 +78,7 @@ end
 STRING
         end
 
-        it { should eq(true) }
+        it { is_expected.to eq(true) }
       end
 
       context "when the resource doesn't exist" do
@@ -92,7 +92,7 @@ end
 STRING
         end
 
-        it { should eq(false) }
+        it { is_expected.to eq(false) }
       end
     end
   end
@@ -106,7 +106,7 @@ STRING
     let(:name)  { "admin" }
     let(:depth) { 0 }
 
-    it { should eq("    resources :users") }
+    it { is_expected.to eq("    resources :users") }
   end
 
 end

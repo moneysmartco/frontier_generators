@@ -15,22 +15,22 @@ describe Frontier::Controller::ClassName do
 
     context "when there are no namespaces or nested models" do
       let(:controller_prefixes) { nil }
-      it { should eq("UserDocumentsController") }
+      it { is_expected.to eq("UserDocumentsController") }
     end
 
     context "when there are namespaces" do
       let(:controller_prefixes) { ["admin"] }
-      it { should eq("Admin::UserDocumentsController") }
+      it { is_expected.to eq("Admin::UserDocumentsController") }
     end
 
     context "when there are nested models" do
       let(:controller_prefixes) { ["@client"] }
-      it { should eq("Client::UserDocumentsController") }
+      it { is_expected.to eq("Client::UserDocumentsController") }
     end
 
     context "when there are both namespaces and nested models" do
       let(:controller_prefixes) { ["admin", "@client"] }
-      it { should eq("Admin::Client::UserDocumentsController") }
+      it { is_expected.to eq("Admin::Client::UserDocumentsController") }
     end
   end
 

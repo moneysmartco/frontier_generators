@@ -1,7 +1,7 @@
 class Frontier::Attribute::Validation::Numericality < Frontier::Attribute::Validation
 
   def as_spec
-    "it { should #{full_spec} }"
+    "it { is_expected.to #{full_spec} }"
   end
 
 private

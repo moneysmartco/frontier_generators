@@ -9,7 +9,7 @@ describe 'DELETE destroy' do
     it "deletes the #{model.name.as_title}" do
 #{render_with_indent(3, successful_deletion_assertion)}
     end
-    it { should redirect_to(#{model.url_builder.index_path(show_nested_model_as_ivar: false)}) }
+    it { is_expected.to redirect_to(#{model.url_builder.index_path(show_nested_model_as_ivar: false)}) }
   end
 
   it_behaves_like "action requiring authentication"

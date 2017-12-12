@@ -6,7 +6,7 @@ module Frontier::ModelProperty
     @model = model
   end
 
-protected
+  protected
 
   def render_with_indent(indent_level, content)
     Frontier::RubyRenderer.new(content).render(indent_level)

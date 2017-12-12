@@ -19,22 +19,22 @@ describe Frontier::Controller::ImplementationPath do
 
       context "when there are no namespaces or nested models" do
         let(:controller_prefixes) { nil }
-        it { should eq("app/controllers/bengine/user_documents_controller.rb") }
+        it { is_expected.to eq("app/controllers/bengine/user_documents_controller.rb") }
       end
 
       context "when there are namespaces" do
         let(:controller_prefixes) { ["admin"] }
-        it { should eq("app/controllers/bengine/admin/user_documents_controller.rb") }
+        it { is_expected.to eq("app/controllers/bengine/admin/user_documents_controller.rb") }
       end
 
       context "when there are nested models" do
         let(:controller_prefixes) { ["@client"] }
-        it { should eq("app/controllers/bengine/client/user_documents_controller.rb") }
+        it { is_expected.to eq("app/controllers/bengine/client/user_documents_controller.rb") }
       end
 
       context "when there are both namespaces and nested models" do
         let(:controller_prefixes) { ["admin", "@client"] }
-        it { should eq("app/controllers/bengine/admin/client/user_documents_controller.rb") }
+        it { is_expected.to eq("app/controllers/bengine/admin/client/user_documents_controller.rb") }
       end
     end
 
@@ -43,22 +43,22 @@ describe Frontier::Controller::ImplementationPath do
 
       context "when there are no namespaces or nested models" do
         let(:controller_prefixes) { nil }
-        it { should eq("app/controllers/user_documents_controller.rb") }
+        it { is_expected.to eq("app/controllers/user_documents_controller.rb") }
       end
 
       context "when there are namespaces" do
         let(:controller_prefixes) { ["admin"] }
-        it { should eq("app/controllers/admin/user_documents_controller.rb") }
+        it { is_expected.to eq("app/controllers/admin/user_documents_controller.rb") }
       end
 
       context "when there are nested models" do
         let(:controller_prefixes) { ["@client"] }
-        it { should eq("app/controllers/client/user_documents_controller.rb") }
+        it { is_expected.to eq("app/controllers/client/user_documents_controller.rb") }
       end
 
       context "when there are both namespaces and nested models" do
         let(:controller_prefixes) { ["admin", "@client"] }
-        it { should eq("app/controllers/admin/client/user_documents_controller.rb") }
+        it { is_expected.to eq("app/controllers/admin/client/user_documents_controller.rb") }
       end
     end
   end

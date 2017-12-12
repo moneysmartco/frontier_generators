@@ -13,7 +13,7 @@ describe Frontier::Authorization::Check do
       let(:object) { "TestModel" }
       let(:action) { :new }
 
-      it { should eq("policy(TestModel).new?") }
+      it { is_expected.to eq("policy(TestModel).new?") }
     end
 
     context "when using CanCanCan" do
@@ -21,7 +21,7 @@ describe Frontier::Authorization::Check do
       let(:object) { "TestModel" }
       let(:action) { :new }
 
-      it { should eq("can?(:new, TestModel)") }
+      it { is_expected.to eq("can?(:new, TestModel)") }
     end
   end
 

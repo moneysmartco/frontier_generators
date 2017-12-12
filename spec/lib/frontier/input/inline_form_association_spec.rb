@@ -20,7 +20,7 @@ describe Frontier::Input::InlineFormAssociation do
 CODE
       end
 
-      it { should eq(expected) }
+      it { is_expected.to eq(expected) }
     end
 
     context "with some attributes passed through" do
@@ -43,7 +43,7 @@ CODE
         raw.rstrip
       end
 
-      it { should eq(expected) }
+      it { is_expected.to eq(expected) }
     end
   end
 

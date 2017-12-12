@@ -12,7 +12,7 @@ describe Frontier::Authorization::Assertion do
       let(:action) { :index }
       let(:authorization) { "pundit" }
 
-      it { should eq("authorize(TestModel)") }
+      it { is_expected.to eq("authorize(TestModel)") }
     end
 
     context "when using CanCanCan" do
@@ -20,12 +20,12 @@ describe Frontier::Authorization::Assertion do
 
       context "and the action is index" do
         let(:action) { :index }
-        it { should eq("authorize!(:index, TestModel)") }
+        it { is_expected.to eq("authorize!(:index, TestModel)") }
       end
 
       context "and the action is not index" do
         let(:action) { :show }
-        it { should eq("authorize!(:show, @test_model)") }
+        it { is_expected.to eq("authorize!(:show, @test_model)") }
       end
     end
   end

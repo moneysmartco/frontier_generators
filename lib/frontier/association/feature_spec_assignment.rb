@@ -7,7 +7,7 @@ class Frontier::Association::FeatureSpecAssignment
   end
 
   def to_s
-    "select(#{association.name}, from: \"#{association.capitalized}\")"
+    "select(#{association.name}, from: '#{association.capitalized}')"
   end
 
 end

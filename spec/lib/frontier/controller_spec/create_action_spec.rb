@@ -42,7 +42,7 @@ describe 'POST create' do
         expect(user.name).to eq(user_attributes[:name])
       end
 
-      it { should redirect_to(users_path) }
+      it { is_expected.to redirect_to(users_path) }
 
       it "sets a notice for the user" do
         subject
@@ -63,7 +63,7 @@ STRING
         raw.rstrip
       end
 
-      it { should eq(expected) }
+      it { is_expected.to eq(expected) }
     end
 
     context "with nested models" do
@@ -93,7 +93,7 @@ describe 'POST create' do
         expect(user.name).to eq(user_attributes[:name])
       end
 
-      it { should redirect_to(company_users_path(company)) }
+      it { is_expected.to redirect_to(company_users_path(company)) }
 
       it "sets a notice for the user" do
         subject
@@ -114,7 +114,7 @@ STRING
         raw.rstrip
       end
 
-      it { should eq(expected) }
+      it { is_expected.to eq(expected) }
     end
 
   end

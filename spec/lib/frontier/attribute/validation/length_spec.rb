@@ -21,7 +21,7 @@ describe Frontier::Attribute::Validation::Length do
       }
     end
 
-    it { should eq("length: {minimum: 0, maximum: 666, in: 0..100, within: 0..100, is: 100}") }
+    it { is_expected.to eq("length: {minimum: 0, maximum: 666, in: 0..100, within: 0..100, is: 100}") }
   end
 
   describe "#as_spec" do
@@ -45,32 +45,32 @@ describe Frontier::Attribute::Validation::Length do
 
       context "minimum" do
         let(:args) { {minimum: 0} }
-        it { should eq("it { should validate_length_of(:field_name).is_at_least(0) }") }
+        it { is_expected.to eq("it { is_expected.to validate_length_of(:field_name).is_at_least(0) }") }
       end
 
       context "maximum" do
         let(:args) { {maximum: 666} }
-        it { should eq("it { should validate_length_of(:field_name).is_at_most(666) }") }
+        it { is_expected.to eq("it { is_expected.to validate_length_of(:field_name).is_at_most(666) }") }
       end
 
       context "in" do
         let(:args) { {in: 0..666} }
-        it { should eq("it { should validate_length_of(:field_name).is_at_least(0).is_at_most(666) }") }
+        it { is_expected.to eq("it { is_expected.to validate_length_of(:field_name).is_at_least(0).is_at_most(666) }") }
       end
 
       context "within" do
         let(:args) { {within: 0..666} }
-        it { should eq("it { should validate_length_of(:field_name).is_at_least(0).is_at_most(666) }") }
+        it { is_expected.to eq("it { is_expected.to validate_length_of(:field_name).is_at_least(0).is_at_most(666) }") }
       end
 
       context "is" do
         let(:args) { {is: 666} }
-        it { should eq("it { should validate_length_of(:field_name).is_equal_to(666) }") }
+        it { is_expected.to eq("it { is_expected.to validate_length_of(:field_name).is_equal_to(666) }") }
       end
 
       context "combining additional spec options" do
         let(:args) { {minimum: 0, maximum: 666} }
-        it { should eq("it { should validate_length_of(:field_name).is_at_least(0).is_at_most(666) }") }
+        it { is_expected.to eq("it { is_expected.to validate_length_of(:field_name).is_at_least(0).is_at_most(666) }") }
       end
 
       context "other type" do

@@ -16,14 +16,14 @@ describe Frontier::Attribute::Factory do
       ].each do |association_type|
         context "when type is #{association_type}" do
           let(:type) { association_type }
-          it { should be_kind_of(Frontier::Association) }
+          it { is_expected.to be_kind_of(Frontier::Association) }
         end
       end
     end
 
     context "when type is not an association type" do
       let(:type) { "string" }
-      it { should be_kind_of(Frontier::Attribute) }
+      it { is_expected.to be_kind_of(Frontier::Attribute) }
     end
   end
 

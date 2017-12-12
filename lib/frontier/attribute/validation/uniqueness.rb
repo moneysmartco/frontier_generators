@@ -17,7 +17,7 @@ class Frontier::Attribute::Validation::Uniqueness < Frontier::Attribute::Validat
       raw = <<-STRING
 describe "validating uniqueness" do
   subject { create(#{attribute.model.name.as_symbol}) }
-  it { should #{full_assertion} }
+  it { is_expected.to #{full_assertion} }
 end
 STRING
       raw.rstrip

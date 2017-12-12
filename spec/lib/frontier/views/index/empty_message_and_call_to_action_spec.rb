@@ -30,14 +30,14 @@ STRING
         raw.rstrip
 end
 
-      it { should eq(expected) }
+      it { is_expected.to eq(expected) }
     end
 
     context "when there is no new action" do
       let(:show_create) { false }
       let(:expected) { "%p There are no user settings." }
 
-      it { should eq(expected) }
+      it { is_expected.to eq(expected) }
     end
   end
 

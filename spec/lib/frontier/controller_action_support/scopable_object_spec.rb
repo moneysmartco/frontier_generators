@@ -13,25 +13,25 @@ RSpec.describe Frontier::ControllerActionSupport::ScopableObject do
     describe "model with no namespaces or nested models" do
       let(:controller_prefixes) { nil }
 
-      it { should eq("TestModel") }
+      it { is_expected.to eq("TestModel") }
     end
 
     describe "model with a namespace" do
       let(:controller_prefixes) { ["admin"] }
 
-      it { should eq("TestModel") }
+      it { is_expected.to eq("TestModel") }
     end
 
     describe "model with a nested model" do
       let(:controller_prefixes) { ["@client"] }
 
-      it { should eq("@client.test_models") }
+      it { is_expected.to eq("@client.test_models") }
     end
 
     describe "model with multiple nested model" do
       let(:controller_prefixes) { ["@client", "@doge"] }
 
-      it { should eq("@doge.test_models") }
+      it { is_expected.to eq("@doge.test_models") }
     end
   end
 

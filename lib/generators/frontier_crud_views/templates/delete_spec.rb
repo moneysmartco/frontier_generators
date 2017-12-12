@@ -11,10 +11,10 @@ feature 'Admin can delete an existing <%= model.name.as_constant %>' do
 
   scenario do
     within_row(<%= model.name.as_singular %>.<%= model.primary_attribute.name %>) do
-      click_link("Delete")
+      click_link('Delete')
     end
 
-    expect(page).to have_flash(:notice, "<%= model.name.as_singular_with_spaces.capitalize %> was successfully archived.")
+    expect(page).to have_flash(:notice, '<%= model.name.as_singular_with_spaces.capitalize %> was successfully archived.')
     expect(page).not_to have_content(<%= model.name.as_singular %>.<%= model.primary_attribute.name %>)
     # Ensure object is deleted
 <% if model.soft_delete -%>

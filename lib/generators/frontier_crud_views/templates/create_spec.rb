@@ -9,7 +9,7 @@ feature 'Admin can create a new <%= model.name.as_constant %>' do
 
   before do
     visit(<%= model.url_builder.index_path(show_nested_model_as_ivar: false) %>)
-    click_link("Add <%= model.name.as_singular_with_spaces.with_indefinite_article %>")
+    click_link('Add <%= model.name.as_singular_with_spaces.with_indefinite_article %>')
   end
 
   scenario 'with valid data' do
@@ -17,7 +17,7 @@ feature 'Admin can create a new <%= model.name.as_constant %>' do
 
     submit_form
 
-    expect(page).to have_content("<%= model.name.as_singular_with_spaces.capitalize %> was successfully created.")
+    expect(page).to have_content('<%= model.name.as_singular_with_spaces.capitalize %> was successfully created.')
     <%= model.name.as_singular %> = <%= model.name.as_constant %>.order(created_at: :desc).first
 <%= render_with_indent(2, Frontier::Spec::ObjectAttributesAssertion.new(model).to_s) %>
   end

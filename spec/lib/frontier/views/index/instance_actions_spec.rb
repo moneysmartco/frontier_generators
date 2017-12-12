@@ -22,7 +22,7 @@ describe Frontier::Views::Index::InstanceActions do
 
     describe '#has_actions?' do
       subject { actions.has_actions? }
-      it { should eq(true) }
+      it { is_expected.to eq(true) }
     end
 
     describe "#to_s" do
@@ -37,7 +37,7 @@ STRING
         raw.rstrip
       end
 
-      it { should eq(expected) }
+      it { is_expected.to eq(expected) }
     end
   end
 
@@ -47,7 +47,7 @@ STRING
 
     describe '#has_actions?' do
       subject { actions.has_actions? }
-      it { should eq(true) }
+      it { is_expected.to eq(true) }
     end
 
     describe "#to_s" do
@@ -60,7 +60,7 @@ STRING
         raw.rstrip
       end
 
-      it { should eq(expected) }
+      it { is_expected.to eq(expected) }
     end
   end
 
@@ -70,7 +70,7 @@ STRING
 
     describe '#has_actions?' do
       subject { actions.has_actions? }
-      it { should eq(true) }
+      it { is_expected.to eq(true) }
     end
 
     describe "#to_s" do
@@ -83,7 +83,7 @@ STRING
         raw.rstrip
       end
 
-      it { should eq(expected) }
+      it { is_expected.to eq(expected) }
     end
   end
 
@@ -93,12 +93,12 @@ STRING
 
     describe '#has_actions?' do
       subject { actions.has_actions? }
-      it { should eq(false) }
+      it { is_expected.to eq(false) }
     end
 
     describe "#to_s" do
       subject { actions.to_s }
-      it { should eq("") }
+      it { is_expected.to eq("") }
     end
   end
 

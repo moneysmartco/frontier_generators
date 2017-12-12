@@ -25,7 +25,7 @@ describe Frontier::Attribute::FactoryDeclaration::Number do
             less_than: 99
           }
         end
-        it { should eq("rand(44..99)") }
+        it { is_expected.to eq("rand(44..99)") }
       end
 
       context "when validation is for greater_than_or_equal_to/less_than_or_equal_to" do
@@ -35,7 +35,7 @@ describe Frontier::Attribute::FactoryDeclaration::Number do
             less_than_or_equal_to: 99
           }
         end
-        it { should eq("rand(44..99)") }
+        it { is_expected.to eq("rand(44..99)") }
       end
 
       context "when validation doesn't include a greater_than or greater_than_or_equal_to component" do
@@ -44,7 +44,7 @@ describe Frontier::Attribute::FactoryDeclaration::Number do
             less_than: 99
           }
         end
-        it { should eq("rand(0..99)") }
+        it { is_expected.to eq("rand(0..99)") }
       end
 
       context "when validation doesn't include a less_than or less_than_or_equal_to component" do
@@ -53,12 +53,12 @@ describe Frontier::Attribute::FactoryDeclaration::Number do
             greater_than: 99
           }
         end
-        it { should eq("rand(99..9999)") }
+        it { is_expected.to eq("rand(99..9999)") }
       end
     end
 
     context "when attribute has not validation on numericality" do
-      it { should eq("rand(9999)") }
+      it { is_expected.to eq("rand(9999)") }
     end
   end
 

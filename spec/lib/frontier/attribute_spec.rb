@@ -9,7 +9,7 @@ describe Frontier::Attribute do
   describe "#as_table_heading" do
     subject { attribute.as_table_heading }
 
-    it { should eq("Attribute Name") }
+    it { is_expected.to eq("Attribute Name") }
   end
 
   describe "#as_enum" do
@@ -26,7 +26,7 @@ describe Frontier::Attribute do
       context "enum_options is present" do
         before { options[:enum_options] = ["zero", "one"] }
 
-        it { should eq("enum attribute_name: {zero: 0, one: 1}") }
+        it { is_expected.to eq("enum attribute_name: {zero: 0, one: 1}") }
       end
 
       context "enum_options is blank" do
@@ -41,7 +41,7 @@ describe Frontier::Attribute do
     subject(:constants) { attribute.constants }
 
     context "with no constants" do
-      it { should be_empty }
+      it { is_expected.to be_empty }
     end
 
     context "with a constant provided by an inclusion validations" do
@@ -58,12 +58,12 @@ describe Frontier::Attribute do
 
   describe "#is_attribute?" do
     subject { attribute.is_attribute? }
-    it { should eq(true) }
+    it { is_expected.to eq(true) }
   end
 
   describe "#is_association?" do
     subject { attribute.is_association? }
-    it { should eq(false) }
+    it { is_expected.to eq(false) }
   end
 
   describe "#is_enum?" do
@@ -71,12 +71,12 @@ describe Frontier::Attribute do
 
     context "when field is not an enum" do
       let(:options) { {type: "string"} }
-      it { should eq(false) }
+      it { is_expected.to eq(false) }
     end
 
     context "when field is an enum" do
       let(:options) { {type: "enum", enum_options: ["one", "two"]} }
-      it { should eq(true) }
+      it { is_expected.to eq(true) }
     end
   end
 
@@ -86,17 +86,17 @@ describe Frontier::Attribute do
 
     context "when primary is true" do
       let(:primary) { true }
-      it { should eq(true) }
+      it { is_expected.to eq(true) }
     end
 
     context "when primary is false" do
       let(:primary) { false }
-      it { should eq(false) }
+      it { is_expected.to eq(false) }
     end
 
     context "when primary is nil" do
       let(:primary) { nil }
-      it { should eq(false) }
+      it { is_expected.to eq(false) }
     end
   end
 
@@ -106,17 +106,17 @@ describe Frontier::Attribute do
     context "when show_on_form property is set" do
       context "when show_on_form is true" do
         let(:options) { {show_on_form: true} }
-        it { should eq(true) }
+        it { is_expected.to eq(true) }
       end
 
       context "when show_on_form is false" do
         let(:options) { {show_on_form: false} }
-        it { should eq(false) }
+        it { is_expected.to eq(false) }
       end
     end
 
     context "when show_on_form property is not set" do
-      it { should eq(true) }
+      it { is_expected.to eq(true) }
     end
   end
 
@@ -126,17 +126,17 @@ describe Frontier::Attribute do
     context "when show_on_index property is set" do
       context "when show_on_index is true" do
         let(:options) { {show_on_index: true} }
-        it { should eq(true) }
+        it { is_expected.to eq(true) }
       end
 
       context "when show_on_index is false" do
         let(:options) { {show_on_index: false} }
-        it { should eq(false) }
+        it { is_expected.to eq(false) }
       end
     end
 
     context "when show_on_index property is not set" do
-      it { should eq(true) }
+      it { is_expected.to eq(true) }
     end
   end
 
@@ -146,11 +146,11 @@ describe Frontier::Attribute do
     context "when attribute type is text" do
       before { allow(attribute).to receive(:type) { "text" } }
 
-      it { should eq "truncate(test_model.attribute_name, length: 30)" }
+      it { is_expected.to eq "truncate(test_model.attribute_name, length: 30)" }
     end
 
     context "when attribute type is not text" do
-      it { should eq "test_model.attribute_name" }
+      it { is_expected.to eq "test_model.attribute_name" }
     end
   end
 
@@ -172,7 +172,7 @@ describe Frontier::Attribute do
 
     context "when there are validations specified" do
       let(:validates) { nil }
-      it { should be_empty }
+      it { is_expected.to be_empty }
     end
 
   end

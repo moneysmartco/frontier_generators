@@ -16,7 +16,7 @@ describe Frontier::Input::SelectFormAssociation do
       let(:name) { "association_name_id" }
       let(:input_options) { {my_option: ":jordan_rules"} }
 
-      it { should eq(expected_output) }
+      it { is_expected.to eq(expected_output) }
     end
 
     describe "setting name of input" do
@@ -24,7 +24,7 @@ describe Frontier::Input::SelectFormAssociation do
         let(:expected_output) { "= f.association :association_name, collection: Dong.all" }
         let(:options) { {class_name: "Dong"} }
 
-        it { should eq(expected_output) }
+        it { is_expected.to eq(expected_output) }
       end
 
       context "without class_name declared" do
@@ -32,12 +32,12 @@ describe Frontier::Input::SelectFormAssociation do
 
         context "when field_name includes _id already" do
           let(:name) { "association_name_id" }
-          it { should eq(expected_output) }
+          it { is_expected.to eq(expected_output) }
         end
 
         context "when field_name doesn't include _id" do
           let(:name) { "association_name" }
-          it { should eq(expected_output) }
+          it { is_expected.to eq(expected_output) }
         end
       end
     end

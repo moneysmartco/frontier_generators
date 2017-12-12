@@ -1,9 +1,8 @@
 class Frontier::FeatureSpec::SortScenario::OrderedObject
-
   attr_reader :model, :attribute_or_association
 
   def initialize(attribute_or_association)
-    @model      = attribute_or_association.model
+    @model = attribute_or_association.model
     @attribute_or_association = attribute_or_association
   end
 
@@ -15,14 +14,14 @@ class Frontier::FeatureSpec::SortScenario::OrderedObject
     Frontier::FactoryBotSupport::Declaration.new(:create, model).to_s(second_options)
   end
 
-private
+  private
 
   def first_options
-    {attribute_or_association.name => first_value}
+    { attribute_or_association.name => first_value }
   end
 
   def second_options
-    {attribute_or_association.name => second_value}
+    { attribute_or_association.name => second_value }
   end
 
   def first_value
@@ -35,17 +34,16 @@ private
 
   def object_values
     case attribute_or_association.type
-    when "boolean"
+    when 'boolean'
       [false, true]
-    when "datetime", "date"
-      ["10.days.ago", "5.days.ago"]
-    when "decimal", "integer"
+    when 'datetime', 'date'
+      ['10.days.ago', '5.days.ago']
+    when 'decimal', 'integer'
       [10, 100]
-    when "string", "text"
-      ["\"Alpha\"", "\"Bravo\""]
+    when 'string', 'text'
+      ["'Alpha'", "'Bravo'"]
     else
-      ["\"Alpha\"", "\"Bravo\""]
+      ["'Alpha'", "'Bravo'"]
     end
   end
-
 end

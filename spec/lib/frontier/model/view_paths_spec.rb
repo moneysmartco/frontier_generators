@@ -11,17 +11,17 @@ RSpec.describe Frontier::Model::ViewPaths do
 
       context "when no view paths are provided" do
         let(:view_path_attributes) { nil }
-        it { should eq(nil) }
+        it { is_expected.to eq(nil) }
       end
 
       context "as nil" do
         let(:file_path) { nil }
-        it { should eq(nil) }
+        it { is_expected.to eq(nil) }
       end
 
       context "as a valid path" do
         let(:file_path) { __FILE__ }
-        it { should eq(file_path) }
+        it { is_expected.to eq(file_path) }
       end
 
       context "as an invalid path" do
