@@ -34,8 +34,12 @@ class FrontierScaffoldGenerator < Frontier::Generator
     end
 
     unless model.skip_landing_page?
+      # Generate landing controller
+
       # Generate landing page
       generate('frontier_landing_page_views', ARGV[0])
+
+      # Generate landing routes
     end
 
     # Version 2

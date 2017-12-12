@@ -34,6 +34,13 @@ class FrontierRouteGenerator < Frontier::Generator
         end
       end
     end
+
+    unless model.skip_landing_page?
+      line = 'localized_engine_scope do'
+      gsub_file ROUTES_FILE_PATH, /(#{Regexp.escape(line)})/mi do |match|
+        "#{match}\n    root to: 'pages#landing'"
+      end
+    end
   end
 
 private
