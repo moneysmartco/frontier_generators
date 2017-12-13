@@ -1,9 +1,9 @@
-require_relative "../../frontier"
+require_relative '../../frontier'
 
 class FrontierRouteGenerator < Frontier::Generator
   source_root File.expand_path('../templates', __FILE__)
 
-  ROUTES_FILE_PATH = "config/routes.rb"
+  ROUTES_FILE_PATH = 'config/routes.rb'.freeze
 
   attr_reader :route_namespaces
 
@@ -34,23 +34,16 @@ class FrontierRouteGenerator < Frontier::Generator
         end
       end
     end
-
-    unless model.skip_landing_page?
-      line = 'localized_engine_scope do'
-      gsub_file ROUTES_FILE_PATH, /(#{Regexp.escape(line)})/mi do |match|
-        "#{match}\n    root to: 'pages#landing'"
-      end
-    end
   end
 
-private
+  private
 
   # EG: admin/user
   def model_with_namespaces
     [
       *model.controller_prefixes.map(&:as_snake_case),
       model.name.as_singular
-    ].join("/")
+    ].join('/')
   end
 
   def routes_file_content

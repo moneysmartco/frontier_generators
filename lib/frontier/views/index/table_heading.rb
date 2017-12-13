@@ -8,9 +8,9 @@ class Frontier::Views::Index::TableHeading
 
   def to_s
     if attribute_or_association.sortable?
-      "%th= sort_link(@ransack_query, #{attribute_or_association.as_symbol}, \"#{attribute_or_association.as_table_heading}\")"
+      "th= sort_link(@ransack_query, #{attribute_or_association.as_symbol}, \"#{attribute_or_association.as_table_heading}\")"
     else
-      "%th #{attribute_or_association.as_table_heading}"
+      "th #{attribute_or_association.as_table_heading}"
     end
   end
 

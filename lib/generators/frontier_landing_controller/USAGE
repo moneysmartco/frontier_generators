@@ -2,7 +2,7 @@ Description:
     Explain the generator
 
 Example:
-    rails generate frontier_landing_page_views Thing
+    rails generate frontier_landing_controller Thing
 
     This will create:
         what/will/it/create

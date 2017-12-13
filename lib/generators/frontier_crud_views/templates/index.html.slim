@@ -1,0 +1,39 @@
+= page_header 'Listing <%= model.name.as_title %>'
+
+- if notice.present?
+  .column
+    .ui.padded.grid
+      .row
+        .ui.positive.message
+          p= notice
+
+- if <%= model.name.as_plural_ivar %>.empty?
+  | <%= Frontier::Views::Index::EmptyMessageAndCallToAction.new(model).to_s %>
+- else
+  table.ui.celled.compact.padded.table
+    thead
+      tr
+<% model.attributes.select(&:show_on_index?).each do |attribute| -%>
+<%= render_with_indent(4, Frontier::Views::Index::TableHeading.new(attribute).to_s) %>
+<% end -%>
+        th colspan='4' actions
+    tbody
+      - <%= model.name.as_plural_ivar %>.each do |<%= model.name.as_singular %>|
+        tr
+<% model.attributes.select(&:show_on_index?).each do |attribute| -%>
+          td= <%= attribute.as_index_string %>
+<% end -%>
+<% if instance_actions.has_actions? -%>
+          td.actions
+<%= render_with_indent(6, instance_actions.to_s) %>
+<% end -%>
+          td= link_to 'Show', [:admin, product]
+          td= link_to 'Edit', [:edit, :admin, product]
+          td= link_to 'Destroy', [:admin, product], method: :delete, data: { confirm: 'Are you sure?' }
+          td= link_to 'View Specifications', [:admin, product, :product_variants]
+
+div
+  br
+  = will_paginate <%= model.name.as_plural_ivar %>
+  br
+  = link_to 'New <%= model.name.as_title %>', [:new, :admin, <%= model.name.as_symbol %>], class: 'ui blue button'

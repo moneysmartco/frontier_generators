@@ -1,0 +1,21 @@
+= <%= Frontier::FormHeader.new(model).to_s %>
+
+  h3.ui.header.block Basic Information
+  .ui
+<% model.attributes.select(&:show_on_form?).each do |attribute| -%>
+<%= render_with_indent(2, Frontier::Input::Factory.build_for(attribute).to_s) %>
+<% end -%>
+    // TODO ADD IN THE ABILITY TO INPUT TRANSLATIONS HERE!
+    = render 'ms_core/admin/shared/products/common_fields', f: f
+    .ui.divider.hidden
+    .row.actions
+      = f.button :submit, 'Save'
+      %span.or or
+      = link_to "Cancel", <%= model.url_builder.index_path %>
+
+= content_for :footer_js do
+  #rate-modal.ui.modal.transition
+    .header
+      | Rates
+    .content.scrolling
+  = javascript_include_tag '<%= model.engine_name %>/admin/products'
