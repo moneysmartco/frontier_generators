@@ -3,8 +3,6 @@ require_relative '../../frontier'
 class FrontierRouteGenerator < Frontier::Generator
   source_root File.expand_path('../templates', __FILE__)
 
-  ROUTES_FILE_PATH = 'config/routes.rb'.freeze
-
   attr_reader :route_namespaces
 
   def scaffold
