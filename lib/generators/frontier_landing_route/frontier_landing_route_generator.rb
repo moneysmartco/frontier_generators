@@ -1,6 +1,6 @@
 require_relative '../../frontier'
 
-class FrontierRouteGenerator < Frontier::Generator
+class FrontierLandingRouteGenerator < Frontier::Generator
   source_root File.expand_path('../templates', __FILE__)
 
   attr_reader :route_namespaces
@@ -20,7 +20,7 @@ class FrontierRouteGenerator < Frontier::Generator
   private
 
   def route_file_has_landing_route?
-    File.readlines(ROUTES_FILE_PATH).grep(/root to: 'pages#landing'/).size > 0
+    File.readlines('config/routes.rb').grep(/root to: 'pages#landing'/).!empty?
   end
 
 end

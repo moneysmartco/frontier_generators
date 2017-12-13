@@ -1,6 +1,6 @@
 require_relative '../../frontier'
 
-class FrontierControllerGenerator < Frontier::Generator
+class FrontierLandingControllerGenerator < Frontier::Generator
   source_root File.expand_path('../templates', __FILE__)
 
   def scaffold
