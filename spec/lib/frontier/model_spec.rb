@@ -82,6 +82,28 @@ describe Frontier::Model do
 
     end
 
+    describe 'assigns @engine_object' do
+      subject { model.engine_object? }
+
+      let(:model) { Frontier::Model.new(model_options) }
+      let(:model_options) { { test_model: { engine_object: engine_object } } }
+
+      context 'when engine_object is true' do
+        let(:engine_object) { true }
+        it { is_expected.to eq(true) }
+      end
+
+      context 'when engine_object is false' do
+        let(:engine_object) { false }
+        it { is_expected.to eq(false) }
+      end
+
+      context 'when engine_object is nil' do
+        let(:engine_object) { nil }
+        it { is_expected.to eq(false) }
+      end
+    end
+
     describe 'assigning @skip_factory' do
       subject { model.skip_factory? }
 

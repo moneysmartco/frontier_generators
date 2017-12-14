@@ -24,4 +24,24 @@ describe Frontier::MigrationStringBuilder do
       end
     end
   end
+
+  describe '#engine_to_s' do
+    subject(:output) { builder.engine_to_s }
+
+    it { is_expected.to eq "CreateEngineTestModel name:string:index created_at:datetime updated_at:datetime" }
+
+    describe "option: soft_delete" do
+      before { allow(configuration).to receive(:soft_delete).and_return(soft_delete) }
+
+      context "when soft_delete is false" do
+        let(:soft_delete) { false }
+        it { is_expected.to_not include "deleted_at:datetime:index" }
+      end
+
+      context "when soft_delete is true" do
+        let(:soft_delete) { true }
+        it { is_expected.to include "deleted_at:datetime:index" }
+      end
+    end
+  end
 end

@@ -7,6 +7,11 @@ class Frontier::MigrationStringBuilder
     "Create#{model.name.as_constant} #{extra_columns}"
   end
 
+  # EG: CreateEngineNameProduct name:string contact_number:string
+  def engine_to_s
+    "Create#{model.engine_name.camelize}#{model.name.as_constant} #{extra_columns}"
+  end
+
 private
 
   # Should be in the format attribute_name:type attribute_name:type

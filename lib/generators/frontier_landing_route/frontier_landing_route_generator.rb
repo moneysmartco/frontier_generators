@@ -20,7 +20,7 @@ class FrontierLandingRouteGenerator < Frontier::Generator
   private
 
   def route_file_has_landing_route?
-    File.readlines('config/routes.rb').grep(/root to: 'pages#landing'/).!empty?
+    File.readlines('config/routes.rb').grep(/root to: 'pages#landing'/).size > 0
   end
 
 end

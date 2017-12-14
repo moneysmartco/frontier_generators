@@ -17,6 +17,21 @@ STRING
     raw.rstrip
   end
 
+  def engine_to_s
+    raw = <<-STRING
+FactoryBot.define do
+  factory :#{model.engine_name}_#{model.name.as_singular}, class: '#{model.engine_name.camelize}::#{model.name.as_constant}' do
+#{render_aligned_and_indented(2, "{", factoried_attributes)}
+
+    trait :invalid do
+#{render_aligned_and_indented(3, "nil", invalid_attributes)}
+    end
+  end
+end
+STRING
+    raw.rstrip
+  end
+
 private
 
   def render_aligned_and_indented(indents, token, content)

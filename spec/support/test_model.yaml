@@ -1,4 +1,5 @@
 test_model:
+  engine_name: 'engine'
   controller_prefixes: ["admin"]
 
   soft_delete: false
