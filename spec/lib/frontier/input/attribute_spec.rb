@@ -15,7 +15,7 @@ describe Frontier::Input::Attribute do
       [:datetime, :date].each do |attribute_type|
         context "when type is #{attribute_type}" do
           let(:options) { {type: attribute_type} }
-
+          # Temporarily removed :date_picker till we implemenet our own.
           it { is_expected.to eq("= f.input :attribute_name") }
         end
       end

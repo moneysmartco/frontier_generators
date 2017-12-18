@@ -1,7 +1,7 @@
-= page_header 'Editing <%= model.name.as_singular_ivar %>'
+= page_header 'Editing <%= model.name.as_title %>'
 
 = render 'form'
 
-= link_to 'Show', [:admin, @product]
+= link_to 'Show', [:admin, <%= model.name.as_singular_ivar %>]
 | |
-= link_to 'Back', [:admin, :products]
+= link_to 'Back', [:admin, <%= model.name.as_symbol %>]

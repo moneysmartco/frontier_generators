@@ -16,7 +16,7 @@
 <% model.attributes.select(&:show_on_index?).each do |attribute| -%>
 <%= render_with_indent(4, Frontier::Views::Index::TableHeading.new(attribute).to_s) %>
 <% end -%>
-        th colspan='4' actions
+        th colspan='3' actions
     tbody
       - <%= model.name.as_plural_ivar %>.each do |<%= model.name.as_singular %>|
         tr
@@ -28,7 +28,6 @@
           td= link_to 'Show', [:admin, <%= model.name.as_singular %>]
           td= link_to 'Edit', [:edit, :admin, <%= model.name.as_singular %>]
           td= link_to 'Destroy', [:admin, <%= model.name.as_singular %>], method: :delete, data: { confirm: 'Are you sure?' }
-          td= link_to 'View Specifications', [:admin, <%= model.name.as_singular %>, :product_variants]
 <% end -%>
 
 div
