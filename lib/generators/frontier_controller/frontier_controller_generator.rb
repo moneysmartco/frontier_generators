@@ -7,10 +7,10 @@ class FrontierControllerGenerator < Frontier::Generator
     unless model.skip_ui?
       if model.engine_object? && model.engine_name.present?
         template 'engine/controller.rb', Frontier::Controller::ImplementationPath.new(model).to_s
-        template 'engine/controller_spec.rb', Frontier::Controller::SpecPath.new(model).to_s
+        # template 'engine/controller_spec.rb', Frontier::Controller::SpecPath.new(model).to_s
       else
         template 'controller.rb', Frontier::Controller::ImplementationPath.new(model).to_s
-        template 'controller_spec.rb', Frontier::Controller::SpecPath.new(model).to_s
+        # template 'controller_spec.rb', Frontier::Controller::SpecPath.new(model).to_s
       end
     end
   end
