@@ -1,5 +1,9 @@
 module <%= model.engine_name.camelize %>
   class <%= model.name.as_constant %> < ApplicationRecord
+<% if model.acting_as -%>
+    acts_as :product, class_name: 'MsCore::Product'
+<% end -%>
+
 <% if model.soft_delete -%>
     # Soft delete - uses deleted_at field
     acts_as_paranoid

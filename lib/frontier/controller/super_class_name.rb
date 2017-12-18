@@ -8,6 +8,7 @@ class Frontier::Controller::SuperClassName
   def to_s
     if model.controller_prefixes.any?
       [
+        "MsCore",
         *model.controller_prefixes.map(&:as_snake_case).map(&:camelize),
         "BaseController"
       ].join("::")

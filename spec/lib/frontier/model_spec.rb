@@ -257,6 +257,24 @@ describe Frontier::Model do
 
     end
 
+    describe 'assigns @acting_as' do
+      subject { model.acting_as? }
+      let(:model) { Frontier::Model.new(model_options) }
+      let(:model_options) { { test_model: { acting_as: acting_as } } }
+
+      context 'when acting_as is present' do
+        let(:acting_as) { true }
+
+        it { is_expected.to eq(true) }
+      end
+
+      context 'when acting_as is not present' do
+        let(:acting_as) {}
+
+        it { is_expected.to eq(false) }
+      end
+    end
+
     describe 'assigns @engine_name' do
       subject { model.engine_name }
       let(:model) { Frontier::Model.new(model_options) }

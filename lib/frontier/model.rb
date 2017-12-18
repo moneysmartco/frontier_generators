@@ -2,6 +2,7 @@ class Frontier::Model
 
   attr_reader *[
     :attributes,
+    :acting_as,
     :authorization,
     :controller_prefixes,
     :engine_name,
@@ -42,7 +43,8 @@ class Frontier::Model
     @skip_landing_page = configuration_for(attributes[model_name][:skip_landing_page], default: true)
 
     # Additional utility items
-    @engine_name = attributes[model_name][:engine_name] || nil
+    @acting_as     = attributes[model_name][:acting_as] || false
+    @engine_name   = attributes[model_name][:engine_name] || nil
     @engine_object = attributes[model_name][:engine_object] || false
     @url_builder = Frontier::UrlBuilder.new(self)
     @view_paths  = Frontier::Model::ViewPaths.new(attributes[model_name][:view_paths])
@@ -67,6 +69,7 @@ class Frontier::Model
   end
 
   [
+    :acting_as,
     :engine_name,
     :engine_object,
     :skip_factory,

@@ -6,12 +6,14 @@
 <%= render_with_indent(2, Frontier::Input::Factory.build_for(attribute).to_s) %>
 <% end -%>
     // TODO ADD IN THE ABILITY TO INPUT TRANSLATIONS HERE!
+
+<% if model.acting_as? -%>
     = render 'ms_core/admin/shared/products/common_fields', f: f
-    .ui.divider.hidden
-    .row.actions
-      = f.button :submit, 'Save'
-      %span.or or
-      = link_to "Cancel", <%= model.url_builder.index_path %>
+<% end -%>
+
+  .ui.divider.hidden
+  .row.actions
+    = f.button :submit, 'Save'
 
 = content_for :footer_js do
   #rate-modal.ui.modal.transition

@@ -14,13 +14,23 @@ class Frontier::Attribute::Validation::Uniqueness < Frontier::Attribute::Validat
 
   def as_spec
     if args.present?
-      raw = <<-STRING
+      if attribute.model.engine_object?
+        raw = <<-STRING
+describe "validating uniqueness" do
+  subject { create(:#{attribute.model.engine_name}_#{attribute.model.name.as_singular}) }
+  it { is_expected.to #{full_assertion} }
+end
+STRING
+        raw.rstrip
+      else
+        raw = <<-STRING
 describe "validating uniqueness" do
   subject { create(#{attribute.model.name.as_symbol}) }
   it { is_expected.to #{full_assertion} }
 end
 STRING
-      raw.rstrip
+        raw.rstrip
+      end
     else
       raise(ArgumentError, "uniqueness validation must have at least one argument or be 'true'")
     end

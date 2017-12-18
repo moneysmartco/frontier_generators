@@ -48,7 +48,11 @@ private
   end
 
   def enum_data
-    "#{attribute.model.name.as_constant}.#{attribute.name.pluralize}.keys.sample"
+    if attribute.model.engine_object?
+      "#{attribute.model.engine_name.camelize}::#{attribute.model.name.as_constant}.#{attribute.name.pluralize}.keys.sample"
+    else
+      "#{attribute.model.name.as_constant}.#{attribute.name.pluralize}.keys.sample"
+    end
   end
 
   def number_data

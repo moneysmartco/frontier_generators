@@ -64,6 +64,7 @@ FactoryBot.define do
     first_name { FFaker::Name.first_name }
     surname    { FFaker::Name.last_name }
 
+
     trait :invalid do
       address    nil
       first_name nil

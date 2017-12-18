@@ -22,6 +22,7 @@ STRING
 FactoryBot.define do
   factory :#{model.engine_name}_#{model.name.as_singular}, class: '#{model.engine_name.camelize}::#{model.name.as_constant}' do
 #{render_aligned_and_indented(2, "{", factoried_attributes)}
+#{render_aligned_and_indented(2, '{', acting_attributes) if model.acting_as? }
 
     trait :invalid do
 #{render_aligned_and_indented(3, "nil", invalid_attributes)}
@@ -49,6 +50,17 @@ private
     model.attributes.sort_by(&:name).map do |attribute|
       "#{attribute.name} nil"
     end
+  end
+
+  def acting_attributes
+    [
+      'association :provider, factory: :ms_core_provider',
+      'description { FFaker::Lorem.sentence }',
+      'name { FFaker::Name.name }',
+      'slug { FFaker::Internet.slug }',
+      "status { ['draft', 'active', 'archived'].sample }",
+      'hopoff_url { FFaker::Internet.http_url }'
+    ]
   end
 
 end

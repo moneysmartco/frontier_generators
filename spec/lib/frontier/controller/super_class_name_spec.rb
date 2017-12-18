@@ -20,17 +20,17 @@ describe Frontier::Controller::SuperClassName do
 
     context "when there are namespaces" do
       let(:controller_prefixes) { ["admin"] }
-      it { is_expected.to eq("Admin::BaseController") }
+      it { is_expected.to eq("MsCore::Admin::BaseController") }
     end
 
     context "when there are nested models" do
       let(:controller_prefixes) { ["@client"] }
-      it { is_expected.to eq("Client::BaseController") }
+      it { is_expected.to eq("MsCore::Client::BaseController") }
     end
 
     context "when there are both namespaces and nested models" do
       let(:controller_prefixes) { ["admin", "@client"] }
-      it { is_expected.to eq("Admin::Client::BaseController") }
+      it { is_expected.to eq("MsCore::Admin::Client::BaseController") }
     end
   end
 

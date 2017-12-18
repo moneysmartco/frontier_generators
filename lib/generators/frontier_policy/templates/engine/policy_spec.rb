@@ -1,7 +1,7 @@
 require 'rails_helper'
 
-describe <%= policy_class_name %> do
-  subject { <%= policy_class_name %>.new(user, target_user) }
+describe <%= model.engine_name.camelize %>::<%= policy_class_name %> do
+  subject { <%= model.engine_name.camelize %>::<%= policy_class_name %>.new(user, target_user) }
   let(:target_user) { build(:ms_core_user) }
 
   context 'for a visitor' do

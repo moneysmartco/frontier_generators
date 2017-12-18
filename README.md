@@ -10,6 +10,7 @@ By default, you get:
 - Feature and unit tests for all of the above
 - Empty seed rake task
 - Landing pages
+- Acting as MsCore::Product
 
 ## Important Caveat: In Progress
 
@@ -50,6 +51,8 @@ You can define a model with some options as follows:
 model_name:
   # Use CanCanCan instead of Pundit (`pundit` by default)
   authorization: cancancan
+  # Set if object is acting as a MsCore Product. `false` by default.
+  acting_as: true
   # Do not generate factory. `false` by default.
   skip_factory: true
   # Do not generate model. `false` by default.
