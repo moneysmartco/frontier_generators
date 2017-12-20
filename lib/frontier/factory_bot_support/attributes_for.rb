@@ -7,7 +7,7 @@ class Frontier::FactoryBotSupport::AttributesFor
   end
 
   def to_s
-    if model_or_association.engine_object?
+    if model_or_association.respond_to?(:engine_object) && model_or_association.engine_object?
       Frontier::FactoryBotSupport::EngineDeclaration.new("attributes_for", model_or_association, model_or_association).to_s
     else
       Frontier::FactoryBotSupport::Declaration.new("attributes_for", model_or_association).to_s
