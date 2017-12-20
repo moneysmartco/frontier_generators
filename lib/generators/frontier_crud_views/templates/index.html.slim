@@ -24,7 +24,6 @@
           td= <%= attribute.as_index_string %>
 <% end -%>
 <% if instance_actions.has_actions? -%>
-          td.actions
           td= link_to 'Show', [:admin, <%= model.name.as_singular %>]
           td= link_to 'Edit', [:edit, :admin, <%= model.name.as_singular %>]
           td= link_to 'Destroy', [:admin, <%= model.name.as_singular %>], method: :delete, data: { confirm: 'Are you sure?' }
