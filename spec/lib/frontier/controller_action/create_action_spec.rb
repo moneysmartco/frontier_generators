@@ -14,6 +14,7 @@ def create
   @test_model.save
 
   respond_with(@test_model, location: admin_test_models_path)
+  flash[:notice] = '#{model.name.as_title} was successfully created.'
 end
 STRING
       raw.rstrip

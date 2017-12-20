@@ -15,7 +15,7 @@ feature 'Admin can create a new <%= model.name.as_constant %>', :js do
   scenario 'with valid data' do
 <%= render_with_indent(2, Frontier::Spec::FeatureSpecAssignmentSet.new(model).to_s) %>
 <% if model.acting_as? -%>
-<%= render_with_indent(2, Frontier::Spec::FeatureSpecActingAs.new(mode).to_s)
+<%= render_with_indent(2, Frontier::Spec::FeatureSpecActingAs.new(model).to_s) %>
 <% end -%>
 
     click_on('Save')

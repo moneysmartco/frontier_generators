@@ -14,6 +14,7 @@ def destroy
   @test_model.destroy
 
   respond_with(@test_model, location: admin_test_models_path)
+  flash[:notice] = '#{model.name.as_title} was successfully deleted.'
 end
 STRING
       raw.rstrip
