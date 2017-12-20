@@ -22,6 +22,7 @@ def update
   #{model.name.as_singular_ivar}.save
 
   respond_with(#{model.name.as_singular_ivar}, location: #{model.url_builder.index_path})
+  flash[:notice] = '#{model.name.as_title} was successfully updated.'
 end
 STRING
     raw.rstrip

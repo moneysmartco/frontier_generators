@@ -13,7 +13,16 @@ class Frontier::ControllerAction::StrongParamsMethod
 private
 
   def attributes_as_strong_params
-    strong_params_from_attributes(model.attributes)
+    if model.acting_as?
+      strong_params_from_attributes(model.attributes).push(
+        '*MsCore::Product.globalize_attribute_names',
+        ':provider_id',
+        ':status',
+        ':image_cache'
+      )
+    else
+      strong_params_from_attributes(model.attributes)
+    end
   end
 
   def strong_params_from_attributes(attributes)

@@ -44,7 +44,12 @@ private
   end
 
   def factory_bot_call(resouce_name, controller_prefixes)
-    factory = Frontier::FactoryBotSupport::Declaration.new("create", resouce_name)
+    if model.engine_object?
+      factory = Frontier::FactoryBotSupport::EngineDeclaration.new("create", resouce_name, model)
+    else
+      factory = Frontier::FactoryBotSupport::Declaration.new("create", resouce_name)
+    end
+
     factory.to_s(factory_arguments_for(controller_prefixes))
   end
 

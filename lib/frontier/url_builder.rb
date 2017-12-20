@@ -3,23 +3,23 @@ class Frontier::UrlBuilder
   include Frontier::ModelProperty
 
   def index_path(show_nested_model_as_ivar: true)
-    "#{plural_resource_route_with_controller_prefixes}#{route_objects(show_member: false, show_nested_model_as_ivar: show_nested_model_as_ivar)}"
+    "#{engine_route}#{plural_resource_route_with_controller_prefixes}#{route_objects(show_member: false, show_nested_model_as_ivar: show_nested_model_as_ivar)}"
   end
 
   def new_path(show_nested_model_as_ivar: true)
-    "new_#{singular_resource_route_with_controller_prefixes}#{route_objects(show_member: false, show_nested_model_as_ivar: show_nested_model_as_ivar)}"
+    "#{engine_route}new_#{singular_resource_route_with_controller_prefixes}#{route_objects(show_member: false, show_nested_model_as_ivar: show_nested_model_as_ivar)}"
   end
 
   def edit_path(show_nested_model_as_ivar: true)
-    "edit_#{singular_resource_route_with_controller_prefixes}#{route_objects(show_member: true, show_nested_model_as_ivar: show_nested_model_as_ivar)}"
+    "#{engine_route}edit_#{singular_resource_route_with_controller_prefixes}#{route_objects(show_member: true, show_nested_model_as_ivar: show_nested_model_as_ivar)}"
   end
 
   def delete_path(show_nested_model_as_ivar: true)
-    "#{singular_resource_route_with_controller_prefixes}#{route_objects(show_member: true, show_nested_model_as_ivar: show_nested_model_as_ivar)}"
+    "#{engine_route}#{singular_resource_route_with_controller_prefixes}#{route_objects(show_member: true, show_nested_model_as_ivar: show_nested_model_as_ivar)}"
   end
 
   def landing_path(show_nested_model_as_ivar: true)
-    "#{singular_resource_landing_route_with_controller_prefixes}#{route_objects(show_member: false, show_nested_model_as_ivar: show_nested_model_as_ivar)}"
+    "#{engine_route}#{singular_resource_landing_route_with_controller_prefixes}#{route_objects(show_member: false, show_nested_model_as_ivar: show_nested_model_as_ivar)}"
   end
 
 private
@@ -33,6 +33,12 @@ private
 
     if components.any?
       "(#{components.join(", ")})"
+    end
+  end
+
+  def engine_route
+    if model.engine_object?
+      "#{model.engine_name}."
     end
   end
 

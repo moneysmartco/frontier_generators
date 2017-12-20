@@ -21,6 +21,7 @@ def destroy
   #{model.name.as_singular_ivar}.destroy
 
   respond_with(#{model.name.as_singular_ivar}, location: #{model.url_builder.index_path})
+  flash[:notice] = '#{model.name.as_title} was successfully deleted.'
 end
 STRING
     raw.rstrip

@@ -1,6 +1,6 @@
 # MoneySmart Generators
 
-Use the MoneySmart Generators on the [Moneysmart App Builder](https://github.com/moneysmartco/ms_app_cutter) and [Engine builder](https://github.com/moneysmartco/ms-engine-cutter) to quickly spin up CRUD interfaces.
+Use the MoneySmart Generators on the [Moneysmart App Cutter](https://github.com/moneysmartco/ms_app_cutter) and [Engine Cutter](https://github.com/moneysmartco/ms-engine-cutter) to quickly spin up CRUD interfaces.
 
 By default, you get:
 - Models with validations
