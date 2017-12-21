@@ -22,12 +22,10 @@ class FrontierRouteGenerator < Frontier::Generator
 
         # If the namespace block already exists, we should append this route to it.
         else
-          normalized   = route_namespaces.last.namespace_string
-          denormalized = route_namespaces.last.denormalized_namespace_string
-          # Ensure that the namespace is in the normalized form `namespace :jordan do`
-          gsub_file(ROUTES_FILE_PATH, denormalized, normalized)
+          # Use the namespace for engines to determine where the route should be placed.
+          normalized = "#{route_namespaces.last.name}_engine_scope do"
           # Append the route to the normalized namespace. EG:
-          # namespace :admin do
+          # admin_engine_scope do
           #   resources :jordan
           # end
           gsub_file(ROUTES_FILE_PATH, normalized, "#{normalized}\n#{resource.route_string}")
