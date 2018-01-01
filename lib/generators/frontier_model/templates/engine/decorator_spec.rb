@@ -2,7 +2,7 @@ require 'rails_helper'
 
 module <%= model.engine_name.camelize %>
   describe <%= model.name.as_constant%>Decorator do
-    let(:<%= model.name.as_singular %>) { create(:<%= model.engine_name.camelize %>_<%= model.name.as_singular %>, hopoff_url: hopoff_url) }
+    let(:<%= model.name.as_singular %>) { create(:<%= model.engine_name %>_<%= model.name.as_singular %>, hopoff_url: hopoff_url) }
 
     let(:hopoff_url) { 'http://google.com' }
     let(:decorated_<%= model.name.as_singular %>) { <%= model.name.as_singular %>.decorate }
@@ -15,7 +15,7 @@ module <%= model.engine_name.camelize %>
       end
 
       context '<%= model.name.as_singular %> hopoff_url does not present' do
-        let(:model.name.as_singular) { create(:<%= model.engine_name.camelize %>_<%= model.name.as_singular %>, :draft, hopoff_url: hopoff_url) }
+        let(:<%= model.name.as_singular %>) { create(:<%= model.engine_name %>_<%= model.name.as_singular %>, :draft, hopoff_url: hopoff_url) }
         let(:hopoff_url) { nil }
 
         it { is_expected.to eq hopoff_url }
