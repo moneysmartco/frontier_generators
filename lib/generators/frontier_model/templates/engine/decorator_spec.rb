@@ -15,7 +15,6 @@ module <%= model.engine_name.camelize %>
       end
 
       context '<%= model.name.as_singular %> hopoff_url does not present' do
-        let(:<%= model.name.as_singular %>) { create(:<%= model.engine_name %>_<%= model.name.as_singular %>, :draft, hopoff_url: hopoff_url) }
         let(:hopoff_url) { nil }
 
         it { is_expected.to eq hopoff_url }
