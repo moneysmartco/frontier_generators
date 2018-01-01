@@ -14,11 +14,20 @@ class FrontierModelGenerator < Frontier::Generator
         generate('migration', Frontier::MigrationStringBuilder.new(model).engine_to_s)
         template('engine/model.rb', "app/models/#{model.engine_name}/#{model.name.as_singular}.rb")
         template('engine/model_spec.rb', "spec/models/#{model.engine_name}/#{model.name.as_singular}_spec.rb")
+
+        if model.acting_as?
+          template('engine/decorator.rb', "app/decorators/#{model.engine_name}/#{model.name.as_singular}_decorator.rb")
+          template('engine/decorator_spec.rb', "spec/decorators/#{model.engine_name}/#{model.name.as_singular}_decorator_spec.rb")
+        else
+          generate('decorator', model.name.as_constant)
+        end
       else
         generate('migration', Frontier::MigrationStringBuilder.new(model).to_s)
         template('model.rb', "app/models/#{model.name.as_singular}.rb")
         template('model_spec.rb', "spec/models/#{model.name.as_singular}_spec.rb")
+        generate('decorator', model.name.as_constant)
       end
+
     end
 
     unless model.skip_factory?

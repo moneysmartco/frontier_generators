@@ -5,6 +5,6 @@ require_dependency '<%= "#{model.engine_name}/application_controller" %>'
 module <%= model.engine_name.camelize %>
   class PagesController < ApplicationController
 
-    def landing ;end
+    def landing; end
   end
 end

@@ -58,7 +58,7 @@ private
       'description { FFaker::Lorem.sentence }',
       'name { FFaker::Name.name }',
       'slug { FFaker::Internet.slug }',
-      "status { ['draft', 'active', 'archived'].sample }",
+      "status { ['draft', 'active'].sample }",
       'hopoff_url { FFaker::Internet.http_url }'
     ]
   end

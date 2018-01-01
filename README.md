@@ -11,10 +11,11 @@ By default, you get:
 - Empty seed rake task
 - Landing pages
 - Acting as MsCore::Product
+- Decorators (with unique decorator of objects acting as MsCore::Product)
 
 ## Important Caveat: In Progress
 
-This gem is a work in progress. I make it for my own use to make my job easier. Some features I've implemented are in a "good enough" state. I use GitHub issues to manage my task list. If you find a deficiency, add an issue.
+This gem is a work in progress. If you find a deficiency, add an issue.
 
 Once this gem is in 1.0, I will push an actual gem. Things I want in place before I go to 1.0 are:
 
@@ -23,9 +24,9 @@ Once this gem is in 1.0, I will push an actual gem. Things I want in place befor
 - Support for has_many associations
 - Support for has_and_belongs_to_many associations
 
-## Important Caveat: Pairing with Rails Template
+## Important Caveat: Pairing with Engine Cutter
 
-This gem is specifically made to be paired with the [Moneysmart App Builder](https://github.com/moneysmartco/ms_app_cutter) and [Engine builder](https://github.com/moneysmartco/ms-engine-cutter)
+This gem is specifically made to be paired with the [Moneysmart App Cutter](https://github.com/moneysmartco/ms_app_cutter) and [Engine Cutter](https://github.com/moneysmartco/ms-engine-cutter)
 
 If you want to use this gem in another rails project, you'd need to rewrite some of the output of the generators.
 
