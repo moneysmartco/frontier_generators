@@ -47,6 +47,7 @@ STRING
       Frontier::Model.new({
         user: {
           engine_name: 'engine_one',
+          acting_as: true,
           attributes: {
             first_name: {type: "string"},
             surname: {type: "string"},
@@ -60,10 +61,18 @@ STRING
       raw = <<STRING
 FactoryBot.define do
   factory :engine_one_user, class: 'EngineOne::User' do
+    association :provider, factory: :ms_core_provider, channel_names: ['Engine One']
+    status 'draft'
+    slug { FFaker::Internet.slug }
+    I18n.available_locales.each do |locale|
+      sequence(('name_'.concat(locale.to_s.tr('-', '_')).to_sym) { |_n| FFaker::Name.name }
+      sequence(('description_'.concat(locale.to_s.tr('-', '_')).to_sym) { |_n| FFaker::Lorem.sentence }
+      sequence(('hopoff_url_'.concat(locale.to_s.tr('-', '_')).to_sym) { |_n| FFaker::Internet.http_url }
+    end
+
     association :address, strategy: :build
     first_name { FFaker::Name.first_name }
     surname    { FFaker::Name.last_name }
-
 
     trait :invalid do
       address    nil

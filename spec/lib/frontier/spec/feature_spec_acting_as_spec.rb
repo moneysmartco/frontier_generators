@@ -14,7 +14,7 @@ RSpec.describe Frontier::Spec::FeatureSpecActingAs do
         fill_in('model_name[description_en]', with: model_name_attributes[:description])
         fill_in('model_name[hopoff_url_en]',  with: model_name_attributes[:hopoff_url])
         within('.model_name_provider_id') do
-          select_from_semantic_select_menu(selector: '#model_name_provider_id', value: provider.id)
+          semantic_select(selector: '#model_name_provider_id', value: provider.id)
         end
 STRING
       raw.strip
