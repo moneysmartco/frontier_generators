@@ -65,9 +65,9 @@ FactoryBot.define do
     status 'draft'
     slug { FFaker::Internet.slug }
     I18n.available_locales.each do |locale|
-      sequence(('name_'.concat(locale.to_s.tr('-', '_')).to_sym) { |_n| FFaker::Name.name }
-      sequence(('description_'.concat(locale.to_s.tr('-', '_')).to_sym) { |_n| FFaker::Lorem.sentence }
-      sequence(('hopoff_url_'.concat(locale.to_s.tr('-', '_')).to_sym) { |_n| FFaker::Internet.http_url }
+      sequence(('name_'.concat(locale.to_s.tr('-', '_'))).to_sym) { |_n| FFaker::Name.name }
+      sequence(('description_'.concat(locale.to_s.tr('-', '_'))).to_sym) { |_n| FFaker::Lorem.sentence }
+      sequence(('hopoff_url_'.concat(locale.to_s.tr('-', '_'))).to_sym) { |_n| FFaker::Internet.http_url }
     end
 
     association :address, strategy: :build
