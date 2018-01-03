@@ -2,7 +2,7 @@ require 'rails_helper'
 
 feature 'Admin can create a new <%= model.name.as_constant %>', :js do
 <%= render_with_indent(1, Frontier::Spec::NestedModelLetSetup.new(model).to_s) %>
-<%= render_with_indent(1, 'let!(:provider) { create(:ms_core_provider, :active, channel_names: [<%= model.engine_name.titleize %>]) }') if model.acting_as? %>
+<%= render_with_indent(1, Frontier::Spec::ActingProviderSetup.new(model).to_s) %>
 <%= render_with_indent(1, Frontier::Spec::ObjectSetup::AttributesSetup.new(model).to_s) %>
 <%= render_with_indent(1, Frontier::Spec::ObjectSetup::AssociatedModelSetup.new(model).to_s) %>
 
