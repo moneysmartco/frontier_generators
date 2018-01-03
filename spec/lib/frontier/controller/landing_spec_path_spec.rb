@@ -17,7 +17,7 @@ describe Frontier::Controller::LandingSpecPath do
       let(:engine_name) { 'bengine' }
 
       context 'when there are no namespaces or nested models' do
-        it { is_expected.to eq('app/controllers/bengine/pages_controller_spec.rb') }
+        it { is_expected.to eq('spec/controllers/bengine/pages_controller_spec.rb') }
       end
     end
 
@@ -25,7 +25,7 @@ describe Frontier::Controller::LandingSpecPath do
       let(:engine_name) { }
 
       context 'when there are no namespaces or nested models' do
-        it { is_expected.to eq('app/controllers/pages_controller_spec.rb') }
+        it { is_expected.to eq('spec/controllers/pages_controller_spec.rb') }
       end
     end
   end
