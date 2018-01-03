@@ -7,7 +7,7 @@ class Frontier::Controller::LandingSpecPath
   # EG: DriversController
   def to_s
     File.join([
-      "app",
+      "spec",
       "controllers",
       model.engine_name,
       'pages_controller_spec.rb'
