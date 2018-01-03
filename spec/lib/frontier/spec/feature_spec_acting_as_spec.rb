@@ -10,11 +10,11 @@ RSpec.describe Frontier::Spec::FeatureSpecActingAs do
 
     let(:expected) do
       raw = <<~STRING
-        fill_in('model_name[name_en]',        with: model_name_attributes[:name])
-        fill_in('model_name[description_en]', with: model_name_attributes[:description])
-        fill_in('model_name[hopoff_url_en]',  with: model_name_attributes[:hopoff_url])
+        fill_in('model_name[name_en]',        with: model_name_attributes[:name_en])
+        fill_in('model_name[description_en]', with: model_name_attributes[:description_en])
+        fill_in('model_name[hopoff_url_en]',  with: model_name_attributes[:hopoff_url_en])
         within('.model_name_provider_id') do
-          semantic_select(selector: '#model_name_provider_id', value: provider.id)
+          semantic_select(selector: '#model_name_provider_id', value: provider.id.to_s)
         end
 STRING
       raw.strip
