@@ -5,7 +5,7 @@ Use the MoneySmart Generators on the [Moneysmart App Cutter](https://github.com/
 By default, you get:
 - Models with validations
 - Factories for models using [FFaker](https://github.com/ffaker/ffaker). Factoried attributes take validations into account.
-- Index, new, edit, destroy actions
+- Index, new, edit, destroy actions (note: no show action)
 - Authorization via [Pundit](https://github.com/elabs/pundit) policies
 - Feature and unit tests for all of the above
 - Empty seed rake task
@@ -70,6 +70,8 @@ model_name:
   soft_delete: true
   # Do not generate a landing page. `true` by default.
   skip_landing_page: false
+  # Set if object is for an engine. `false` by default.
+  engine_object: true
   # Namespace inside Engine name.
   engine_name: 'personal_loans'
 ```

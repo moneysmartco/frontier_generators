@@ -1,7 +1,5 @@
-if defined?(SeedHelper)
-  SeedHelper.create_seed_task(<%= model.name.as_plural_symbol %>) do
+if defined?(FactoryBot)
 
-    # TODO: Put your seeds in here.
+  FactoryBot.create(<%= model.name.as_plural_symbol %>)
 
-  end
 end
