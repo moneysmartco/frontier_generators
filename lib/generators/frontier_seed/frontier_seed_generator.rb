@@ -5,9 +5,9 @@ class FrontierSeedGenerator < Frontier::Generator
 
   def scaffold
     if model.engine_object?
-      template('engine_seed.rake', "lib/tasks/seeds/development/#{model.name.as_plural}.rake")
+      template('engine_seed.rake', "db/seeds/development/#{model.name.as_plural}_seed.rb")
     else
-      template('seed.rake', "lib/tasks/seeds/development/#{model.name.as_plural}.rake")
+      template('seed.rake', "db/seeds/development/#{model.name.as_plural}_seed.rb")
     end
   end
 

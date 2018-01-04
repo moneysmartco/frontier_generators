@@ -1,4 +1,4 @@
-require_relative MsCore::Engine.root.join('lib/rake_output')
+require MsCore::Engine.root.join('lib/rake_output')
 
 return if Rails.env.production?
 
