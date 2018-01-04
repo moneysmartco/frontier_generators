@@ -1,5 +1,5 @@
 if defined?(FactoryBot)
 
-  FactoryBot.create(<%= model.name.as_plural_symbol %>)
+  FactoryBot.create(<%= model.name.as_symbol %>)
 
 end
