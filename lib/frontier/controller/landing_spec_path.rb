@@ -2,15 +2,11 @@ class Frontier::Controller::LandingSpecPath
 
   include Frontier::ModelProperty
 
-  # EG: Admin::Users::DriversController
-  # EG: Admin::DriversController
-  # EG: DriversController
   def to_s
     File.join([
-      "spec",
-      "controllers",
-      model.engine_name,
-      'pages_controller_spec.rb'
+      'spec',
+      'routing',
+      'landing_page_routing_spec.rb'
     ].compact).to_s
   end
 
