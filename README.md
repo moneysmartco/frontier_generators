@@ -1,6 +1,7 @@
 # MoneySmart Generators
 
 Use the MoneySmart Generators on the [Moneysmart App Cutter](https://github.com/moneysmartco/ms_app_cutter) and [Engine Cutter](https://github.com/moneysmartco/ms-engine-cutter) to quickly spin up CRUD interfaces.
+For a simpler summary please see [Manager Readme](https://github.com/moneysmartco/moneysmart_generators/MANAGER_README.md)
 
 By default, you get:
 - Models with validations
@@ -17,12 +18,16 @@ By default, you get:
 
 This gem is a work in progress. If you find a deficiency, add an issue.
 
-Once this gem is in 1.0, I will push an actual gem. Things I want in place before I go to 1.0 are:
+Here is a list of some missing useful functionality:
 
 - Support for sorting via Ransack
 - Support for searching via Ransack
 - Support for has_many associations
 - Support for has_and_belongs_to_many associations
+- Support for translations with globalize
+- Date and DateTime validations
+- Spec support for Date and DateTime fields
+- Spec support for enum fields
 
 ## Important Caveat: Pairing with Engine Cutter
 
@@ -147,7 +152,7 @@ NOTE: Support for the `sortable` attribute is partially implemented. It is curre
 
 ## Associations
 
-You can add validations the same way you would add an attribute. Currently supported:
+You can add associations the same way you would add an attribute. Currently supported:
 
 EG:
 
